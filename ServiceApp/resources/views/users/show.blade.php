@@ -71,7 +71,7 @@
 					<tr>
 						<th>Genero:</th>
 						<td>
-							@if ($user->gender == "Female")
+							@if ($user->gender == "Mujer")
 							Mujer
 							@else
 							Hombre    

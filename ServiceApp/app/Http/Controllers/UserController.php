@@ -96,7 +96,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.edit')->with('user', $user);
     }
 
     /**
@@ -108,7 +109,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->identification_user = $request->identification_user;
+        $user->first_name = $request->first_name;
+        $user->second_name = $request->second_name;
+        $user->first_lastname = $request->first_lastname;
+        $user->second_lastname = $request->second_lastname;
+        $user->birthdate = $request->birthdate;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->civil_status = $request->civil_status;
+        $user->gender = $request->gender;
+        $user->role = $request->role;
+        $user->email_verified_at = now();
+        $user->password = bcrypt($request->password);
+            
+        if($user->save()){
+            return redirect('users')->with('message', 'EL usuario fué modificado con éxito!');
+        }
     }
 
     /**

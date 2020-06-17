@@ -86,8 +86,8 @@
 								<label for="gender">Género</label>
 								<select name="gender" class="form-control" id="gender" required>
 									<option value="">Seleccione...</option>
-									<option value="Masculino" @if(old('gender')=='Masculino') selected @endif>Masculino</option>
-									<option value="Femenino" @if(old('gender')=='Femenino') selected @endif>Femenino</option>
+									<option value="Hombre" @if(old('gender')=='Hombre') selected @endif>Masculino</option>
+									<option value="Mujer" @if(old('gender')=='Mujer') selected @endif>Femenino</option>
 								</select>
 							</div>
 						</div>
