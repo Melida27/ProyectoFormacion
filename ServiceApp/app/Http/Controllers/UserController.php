@@ -107,7 +107,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         $user = User::find($id);
         $user->identification_user = $request->identification_user;
@@ -122,7 +122,6 @@ class UserController extends Controller
         $user->gender = $request->gender;
         $user->role = $request->role;
         $user->email_verified_at = now();
-        $user->password = bcrypt($request->password);
             
         if($user->save()){
             return redirect('users')->with('message', 'EL usuario fué modificado con éxito!');

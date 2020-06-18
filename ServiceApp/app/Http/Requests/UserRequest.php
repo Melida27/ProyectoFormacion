@@ -31,10 +31,9 @@ class UserRequest extends FormRequest
                 'second_name' => 'required|min:4',
                 'first_lastname' => 'required|min:4',
                 'second_lastname' => 'required|min:4',
-                'email' => 'required|email|unique',
-                'phone' => 'required|number',
-                'civil_status' => 'required',
-                'password' => 'required|confirmed'
+                'email' => 'required|email|unique:users',
+                'phone' => 'required|numeric',
+                'civil_status' => 'required'
             ];
         }else{
             //Form Create
@@ -45,8 +44,8 @@ class UserRequest extends FormRequest
                 'first_lastname' => 'required|min:4',
                 'second_lastname' => 'required|min:4',
                 'birthdate' => 'required|date',
-                'email' => 'required|email|unique',
-                'phone' => 'required|number',
+                'email' => 'required|email|unique:users',
+                'phone' => 'required|numeric',
                 'civil_status' => 'required',
                 'gender' => 'required',
                 'role' => 'required',
@@ -74,7 +73,7 @@ class UserRequest extends FormRequest
             'email.email' => 'El campo correo electrónico es inválido',
             'email.unique' => 'El campo correo electrónico debe ser único',
             'phone.required' => 'El campo teléfono es obligatorio',
-            'phone.number' => 'El campo teléfono debe tener únicamente números',
+            'phone.numeric' => 'El campo teléfono debe tener únicamente números',
             'civil_status.required' => 'El campo estado civil es obligatorio',
             'gender.required' => 'El campo género es obligatorio',
             'role.required' => 'El campo tipo de usuario es obligatorio',

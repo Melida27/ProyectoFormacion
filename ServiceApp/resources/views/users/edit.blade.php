@@ -34,81 +34,147 @@
 						<div class="form-row">
 						    <div class="form-group col-md-12">
 						      	<label for="identification_user">Cédula Ciudadanía</label>
-						      	<input type="text" name="identification_user" class="form-control" id="identification-user" value="{{ $user->identification_user }}" required>
+						      	<input type="text" name="identification_user" class="form-control @error('identification_user') is-invalid @enderror" id="identification-user" value="{{ $user->identification_user }}">
+
+						      	@error('identification_user')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 						    </div>
 						</div>
 						{{-- ********************************************************************************************************* --}}
 						<div class="form-row">
 						    <div class="form-group col-md-6">
 						      	<label for="first_name">Primer Nombre</label>
-						      	<input type="text" name="first_name" class="form-control" id="first_name" value="{{ $user->first_name }}" required>
+						      	<input type="text" name="first_name" class="form-control @error('first_name') is-invalid @enderror" id="first_name" value="{{ $user->first_name }}">
+
+						      	@error('first_name')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 						    </div>
 
 						    <div class="form-group col-md-6">
 						      	<label for="second_name">Segundo Nombre</label>
-						      	<input type="text" name="second_name" class="form-control" id="second_name" value="{{ $user->second_name }}">
+						      	<input type="text" name="second_name" class="form-control @error('second_name') is-invalid @enderror" id="second_name" value="{{ $user->second_name }}">
+
+						      	@error('second_name')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 						    </div>
 						 </div>
 						{{-- ********************************************************************************************************* --}}
 						<div class="form-row">
 						    <div class="form-group col-md-6">
 						      	<label for="first_lastname">Primer Apellido</label>
-						      	<input type="text" name="first_lastname" class="form-control" id="first_lastname" value="{{ $user->first_lastname }}" required>
+						      	<input type="text" name="first_lastname" class="form-control @error('first_lastname') is-invalid @enderror" id="first_lastname" value="{{ $user->first_lastname }}">
+
+						      	@error('first_lastname')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 						    </div>
 
 						    <div class="form-group col-md-6">
 						      	<label for="second_lastname">Segundo Apellido</label>
-						      	<input type="text" name="second_lastname" class="form-control" id="second_lastname" value="{{ $user->second_lastname }}" required>
+						      	<input type="text" name="second_lastname" class="form-control @error('second_lastname') is-invalid @enderror" id="second_lastname" value="{{ $user->second_lastname }}">
+
+						      	@error('second_lastname')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 						    </div>
 						 </div>
 						{{-- ********************************************************************************************************* --}}
 						<div class="form-row">
 							<div class="form-group col-md-6">
 						      	<label for="birthdate">Fecha Nacimiento</label>
-						      	<input type="date" name="birthdate" class="form-control" id="birthdate" value="{{ $user->birthdate }}" required>
+						      	<input type="date" name="birthdate" class="form-control @error('birthdate') is-invalid @enderror" id="birthdate" value="{{ $user->birthdate }}">
+
+						      	@error('birthdate')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 						    </div>
 
 						    <div class="form-group col-md-6">
 						      	<label for="email">Correo Electrónico</label>
-						      	<input type="email" name="email" class="form-control" id="email" value="{{ $user->email }}" required>
+						      	<input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" value="{{ $user->email }}">
+
+						      	@error('email')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 						    </div>
 						</div>
 						{{-- ********************************************************************************************************* --}}
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="phone">Teléfono</label>
-								<input type="number" name="phone" class="form-control" id="phone" value="{{ $user->phone }}" required>
+								<input type="number" name="phone" class="form-control @error('phone') is-invalid @enderror" id="phone" value="{{ $user->phone }}">
+
+								@error('phone')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 							</div>
 
 						   	<div class="form-group col-md-6">
 								<label for="gender">Género</label>
-								<select name="gender" class="form-control" id="gender" required>
+								<select name="gender" class="form-control @error('gender') is-invalid @enderror" id="gender">
 									<option value="">Seleccione...</option>
 									<option value="Hombre" @if(old('gender', $user->gender) =='Hombre') selected @endif>Masculino</option>
 									<option value="Mujer" @if(old('gender', $user->gender) =='Mujer') selected @endif>Femenino</option>
 								</select>
+
+								@error('gender')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 							</div>
 						</div>
 						{{-- ********************************************************************************************************* --}}
 						<div class="form-row">
 						   	<div class="form-group col-md-6">
 								<label for="civil_status">Estado Civil</label>
-								<select name="civil_status" class="form-control" id="civil_status" required>
+								<select name="civil_status" class="form-control @error('civil_status') is-invalid @enderror" id="civil_status">
 									<option value="">Seleccione...</option>
 									<option value="Soltero" @if(old('civil_status', $user->civil_status)=='Soltero') selected @endif>Soltero</option>
 									<option value="Casado" @if(old('civil_status', $user->civil_status)=='Casado') selected @endif>Casado</option>
 									<option value="Otro" @if(old('civil_status', $user->civil_status)=='Otro') selected @endif>Otro</option>
 								</select>
+
+								@error('civil_status')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 							</div>
 
 							<div class="form-group col-md-6">
 								<label for="role">Tipo Usuario</label>
-								<select name="role" class="form-control" id="role" required>
+								<select name="role" class="form-control @error('role') is-invalid @enderror" id="role">
 									<option value="">Seleccione...</option>
 									<option value="Admin" @if(old('role', $user->role )=='Admin') selected @endif>Administrador</option>
 									<option value="Cliente" @if(old('role', $user->role )=='Cliente') selected @endif>Cliente</option>
 									<option value="Tecnico" @if(old('role', $user->role )=='Tecnico') selected @endif>Técnico</option>
 								</select>
+
+								@error('role')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 							</div>
 						</div>
 						{{-- ********************************************************************************************************* --}}
