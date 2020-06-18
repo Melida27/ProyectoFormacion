@@ -303,7 +303,7 @@
                         option.setAttribute('value', municipalities[municipality].id);
                         option.innerHTML = municipalities[municipality].name_municipality;
                         select_municipalities.append(option);
-                    };  
+                    };
                 });
                 console.log(select_departments.val()); 
                 console.log(select_municipalities.val());   
@@ -351,6 +351,15 @@
             });
 
             /* ----------------------------------------------------------------------------- */
+
+            // $('.btn-edit-user').click(function(event) {
+            //     let dataId = $(this).attr('data-id');
+            //     console.log('Hola, te amo mucho, estoy orgullosa de ti, me fascinas, eres el mejor!');
+            //     $.get('/get-address/' + dataId, function(addresses){
+            //         console.log(addresses);
+            //     });
+            // });
+
             /* ----------------------------------------------------------------------------- */
         });
     </script>

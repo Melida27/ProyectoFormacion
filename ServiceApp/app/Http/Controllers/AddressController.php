@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 use App\Address;
 use App\User;
@@ -116,5 +117,18 @@ class AddressController extends Controller
     {
         $address = Address::find($id);
         $address->delete();
+    }
+
+    public function getAddress($id)
+    {
+        //dd($id);
+        $addresses = DB::table('address_user')
+                            ->select('address_user.address', 'address_user.neighborhood', 'municipalities.name_municipality', 'departments.name_department')
+                            ->join('users', 'address_user.fk_user', '=', 'users.id')
+                            ->join('municipalities', 'address_user.fk_municipality', '=', 'municipalities.id')
+                            ->join('departments', 'municipalities.fk_department', '=', 'departments.id')
+                            ->where('users.id', '=', $id)
+                            ->get();
+        return $addresses;
     }
 }

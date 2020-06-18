@@ -22,6 +22,7 @@ Route::resource('municipalities', 'MunicipalityController');
 Route::resource('addresses', 'AddressController');
 
 Route::put('users/desactivar/{id}', 'UserController@desactivar');
+Route::get('get-address/{id}', 'AddressController@getAddress');
 
 Route::get('account', 'UserController@myAccount');
 Route::put('update-photo', 'UserController@updatePhoto');

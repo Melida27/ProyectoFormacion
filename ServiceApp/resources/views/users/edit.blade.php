@@ -29,6 +29,8 @@
 
 						@csrf
 						@method('PUT')
+						<input type="hidden" value="{{ $user->id }}" id="id-user">
+						{{-- ********************************************************************************************************* --}}
 						<div class="form-row">
 						    <div class="form-group col-md-12">
 						      	<label for="identification_user">Cédula Ciudadanía</label>
@@ -111,7 +113,7 @@
 						</div>
 						{{-- ********************************************************************************************************* --}}
 						<div class="form-group">
-							<button type="submit" class="btn btn-custom">
+							<button type="submit" class="btn btn-custom" >
 								<i class="fa fa-save"></i>
 								Modificar
 							</button>
@@ -119,13 +121,63 @@
 								<i class="fa fa-eraser"></i>
 								Limpiar
 							</button>
+							<button type="button" class="btn btn-danger" id="btn-addresses">
+								<i class="fa fa-address-card"></i>
+								Direcciones
+							</button>
 						</div>
 					</form>
 					{{-- ********************************************************************************************************* --}}
+					<form action="">
+						<div class="row">
+							<div class="form-group col-md-8" id="form-addresses">
+							
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 	
 	@include('menu.menu');
+
+	<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+
+	<script>
+		$(document).ready(function(){
+			$('#btn-addresses').click(function(event) {
+				let idUser = $('#id-user');
+				let formAddresses = $('#form-addresses');
+
+                //console.log('Hola, te amo mucho, estoy orgullosa de ti, me fascinas, eres el mejor!');
+                $.get('/get-address/' + idUser.val(), function(addresses){
+                    console.log(addresses);
+
+                    for(let address in addresses){
+                    	let inputAddress = document.createElement('input');
+                    	let inputNeighborhood = document.createElement('input');
+                    	let inputMunicipality = document.createElement('input');
+                    	let inputDepartment = document.createElement('input');
+
+                    	inputAddress.setAttribute('class', 'form-control mb-2');
+                    	inputNeighborhood.setAttribute('class', 'form-control mb-2');
+                    	inputMunicipality.setAttribute('class', 'form-control mb-2');
+                    	inputDepartment.setAttribute('class', 'form-control mb-2');
+
+                    	inputAddress.setAttribute('value', addresses[address].address);
+                    	inputNeighborhood.setAttribute('value', addresses[address].neighborhood);
+                    	inputMunicipality.setAttribute('value', addresses[address].name_municipality);
+                    	inputDepartment.setAttribute('value', addresses[address].name_department);
+                    	//input.innerHTML = addresses;
+
+                    	formAddresses.append(inputAddress);
+                    	formAddresses.append(inputNeighborhood);
+                    	formAddresses.append(inputMunicipality);
+                    	formAddresses.append(inputDepartment);
+                    }
+                });
+			});	
+		});
+	</script>
 @endsection

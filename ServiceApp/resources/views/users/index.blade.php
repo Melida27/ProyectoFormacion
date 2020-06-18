@@ -21,7 +21,7 @@
 							<th>Nombre</th>
 							<th>Correo Electrónico</th>
 							<th>Teléfono</th>
-							<th>Estado</th>
+							<th class="text-center">Estado</th>
 							<th>Acciones</th>
 						</tr>
 					</thead>
@@ -32,11 +32,11 @@
 								<td>{{ $user->email }}</td>
 								<td>{{ $user->phone }}</td>
 
-								<td>
+								<td class="text-center">
 									@if ($user->status == "1")
-										<span class="btn btn-success"><i class="fa fa-check"></i></span>
+										<i class="fa fa-check text-success"></i>
 									@else
-										<span class="btn btn-danger"><i class="fa fa-times"></i></span>    
+										<i class="fa fa-times text-danger"></i> 
 									@endif
 								</td>
 
@@ -45,7 +45,7 @@
 										<i class="fa fa-search"></i>
 									</a>
 
-									<a href="{{ url('users/'.$user->id.'/edit/') }}" class="btn btn-sm btn-custom">
+									<a href="{{ url('users/'.$user->id.'/edit/')}}" class="btn btn-sm btn-custom btn-edit-user" data-id="{{ $user->id }}">
 										<i class="fa fa-pen"></i>
 									</a>
 

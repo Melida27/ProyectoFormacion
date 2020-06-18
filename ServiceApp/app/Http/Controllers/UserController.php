@@ -168,5 +168,5 @@ class UserController extends Controller
 
         
         return redirect('users')->with('message', 'El usuario fué desactivado con éxito!');
-    } 
+    }
 }
