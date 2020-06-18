@@ -121,20 +121,35 @@
 								<i class="fa fa-eraser"></i>
 								Limpiar
 							</button>
-							<button type="button" class="btn btn-danger" id="btn-addresses">
+							<button type="button" class="btn btn-danger" id="btn-addresses" data-toggle="modal" data-target="#exampleModal">
 								<i class="fa fa-address-card"></i>
 								Direcciones
 							</button>
 						</div>
 					</form>
 					{{-- ********************************************************************************************************* --}}
-					<form action="">
-						<div class="row">
-							<div class="form-group col-md-8" id="form-addresses">
-							
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-scrollable modal-xl">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Direcciones</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+
+								<div class="modal-body">
+									<form action="" id="form-addresses">
+										
+									</form>
+								</div>
+
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -143,41 +158,5 @@
 	@include('menu.menu');
 
 	<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-
-	<script>
-		$(document).ready(function(){
-			$('#btn-addresses').click(function(event) {
-				let idUser = $('#id-user');
-				let formAddresses = $('#form-addresses');
-
-                //console.log('Hola, te amo mucho, estoy orgullosa de ti, me fascinas, eres el mejor!');
-                $.get('/get-address/' + idUser.val(), function(addresses){
-                    console.log(addresses);
-
-                    for(let address in addresses){
-                    	let inputAddress = document.createElement('input');
-                    	let inputNeighborhood = document.createElement('input');
-                    	let inputMunicipality = document.createElement('input');
-                    	let inputDepartment = document.createElement('input');
-
-                    	inputAddress.setAttribute('class', 'form-control mb-2');
-                    	inputNeighborhood.setAttribute('class', 'form-control mb-2');
-                    	inputMunicipality.setAttribute('class', 'form-control mb-2');
-                    	inputDepartment.setAttribute('class', 'form-control mb-2');
-
-                    	inputAddress.setAttribute('value', addresses[address].address);
-                    	inputNeighborhood.setAttribute('value', addresses[address].neighborhood);
-                    	inputMunicipality.setAttribute('value', addresses[address].name_municipality);
-                    	inputDepartment.setAttribute('value', addresses[address].name_department);
-                    	//input.innerHTML = addresses;
-
-                    	formAddresses.append(inputAddress);
-                    	formAddresses.append(inputNeighborhood);
-                    	formAddresses.append(inputMunicipality);
-                    	formAddresses.append(inputDepartment);
-                    }
-                });
-			});	
-		});
-	</script>
+	<script src="{{ asset('js/modalAdress.js' )}}"></script>
 @endsection
