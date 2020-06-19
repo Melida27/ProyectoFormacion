@@ -361,6 +361,17 @@
             // });
 
             /* ----------------------------------------------------------------------------- */
+
+            $('.btn-consultar-id').click(function(event) {
+                $id = $(this).attr('data-id');
+                $table = $(this).attr('data-table');
+                // alert($table);
+                $.get('show'+$table+"/"+$id,function(data){
+                    $("#modal"+$table).html(data);
+                });          
+            });
+
+             /* ----------------------------------------------------------------------------- */
         });
     </script>
 </body>

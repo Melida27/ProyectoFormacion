@@ -12,4 +12,8 @@ class Category extends Model
         'name_category', 
         'image'
     ];
+
+    public function services(){
+    	return $this->hasOne('App\Service');
+    }
 }

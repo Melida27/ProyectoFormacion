@@ -20,6 +20,7 @@ Route::resource('users', 'UserController');
 Route::resource('departments', 'DepartmentController');
 Route::resource('municipalities', 'MunicipalityController');
 Route::resource('addresses', 'AddressController');
+Route::resource('services', 'ServiceController');
 
 Route::put('users/desactivar/{id}', 'UserController@desactivar');
 Route::get('get-address/{id}', 'AddressController@getAddress');
@@ -28,6 +29,7 @@ Route::get('account', 'UserController@myAccount');
 Route::put('update-photo', 'UserController@updatePhoto');
 
 Route::get('showCategory', 'CategoryController@show');
+Route::get('showService/{id}', 'ServiceController@show');
 
 Auth::routes();
 

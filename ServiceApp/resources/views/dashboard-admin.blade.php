@@ -36,7 +36,7 @@
             </div>
         </a>
 
-        <a class="col-md-5">
+        <a class="col-md-5" href="{{url('services')}}">
             <div class="card">
                 <div class="card-header">
                 	 <div class="card card-animate">
