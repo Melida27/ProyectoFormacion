@@ -13,7 +13,7 @@
                         <a href="{{url('account')}}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-user"></i>  Mi Cuenta</a>
                         <a href="{{url('users')}}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-users"></i>  Módulo Usuarios</a>
                         <a href="{{url('categories')}}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-columns"></i>  Módulo Categorias</a>
-                        <a href="#" class="nav-item nav-link item-color-text item-left"><i class="fa fa-list"></i>  Módulo Servicios</a>
+                        <a href="{{url('services')}}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-list"></i>  Módulo Servicios</a>
                         <a href="#" class="nav-item nav-link item-color-text item-left"><i class="fa fa-business-time"></i>  Módulo Pedidos</a>
                         <a href="#" class="nav-item nav-link item-color-text item-left"><i class="fa fa-sign-out-alt"></i>  Cerrar Sesion</a>
                 </div>
