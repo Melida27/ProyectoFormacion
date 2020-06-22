@@ -133,12 +133,17 @@
 					      <input class="form-control" id="inputRol" type="text" value="{{Auth::user()->role}}" readonly>
 					    </div>
 					 </div>
-<div class="form-row">
+                    <div class="form-row">
 						<button type="button" class="btn btn-danger btn-cancel" id="btn-cancel-1">Cancelar</button>
 					    <button type="submit" class="btn btn-success btn-confirm" id="btn-confirm-1">Confirmar</button>
 					</div>
 					 
             	 	</form>
+
+            	 	<button type="button" class="btn btn-danger" id="btn-addresses" data-toggle="modal" data-target="#modalDirecciones" data-id="{{Auth::user()->id}}">
+						<i class="fa fa-address-card"></i>
+						Direcciones
+					</button>
             	 </div>
             </div>
         </div>
@@ -186,6 +191,37 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="modalDirecciones" tabindex="-1" role="dialog" aria-labelledby="modalDirecciones" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable modal-xl">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Direcciones</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			<div class="modal-body">
+				<form action="" id="form-addresses">
+
+				</form>
+                <div id="buttons">
+                	<button class="btn-delete-address btn btn-danger" type="button" data-id="8">Eliminar</button>
+
+                </div> 
+
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+<script src="{{asset('js/account.js')}}"></script>
 
 @include('menu.menu');
 @endsection

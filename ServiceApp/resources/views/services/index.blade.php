@@ -14,6 +14,7 @@
 				
 				<br>
 				<hr>
+				@if(count($services) > 0)
 
 				<table class="table table-striped table-hover ">
 					<thead>
@@ -54,6 +55,10 @@
 						@endforeach
 					</tbody>
 				</table>
+				@else 
+
+				<h4>No hay servicios registrados...</h4>
+				@endif
 				
 				{{ $services->links() }}
 			</div>

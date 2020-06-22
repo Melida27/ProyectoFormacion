@@ -14,7 +14,7 @@
 				
 				<br>
 				<hr>
-
+                @if(count($cats) > 0)
 				<table class="table table-striped table-hover ">
 					<thead>
 						<tr>
@@ -54,6 +54,9 @@
 						@endforeach
 					</tbody>
 				</table>
+				@else
+				<h4>No hay categorías disponibles...</h4>
+				@endif
 				
 				{{ $cats->links() }}
 			</div>

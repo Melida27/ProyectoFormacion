@@ -15,6 +15,8 @@
 				<br>
 				<hr>
 
+				@if(count($users) > 0)
+
 				<table class="table table-striped table-hover ">
 					<thead>
 						<tr>
@@ -61,6 +63,9 @@
 						@endforeach
 					</tbody>
 				</table>
+				@else
+				<h4>No hay usuarios registrados...</h4>
+				@endif
 				
 				{{ $users->links() }}
 			</div>

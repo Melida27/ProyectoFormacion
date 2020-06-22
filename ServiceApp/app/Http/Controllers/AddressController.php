@@ -123,7 +123,7 @@ class AddressController extends Controller
     {
         //dd($id);
         $addresses = DB::table('address_user')
-                            ->select('address_user.address', 'address_user.neighborhood', 'municipalities.name_municipality', 'departments.name_department')
+                            ->select('address_user.id','address_user.address', 'address_user.neighborhood', 'municipalities.name_municipality', 'departments.name_department')
                             ->join('users', 'address_user.fk_user', '=', 'users.id')
                             ->join('municipalities', 'address_user.fk_municipality', '=', 'municipalities.id')
                             ->join('departments', 'municipalities.fk_department', '=', 'departments.id')
