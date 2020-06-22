@@ -8,6 +8,7 @@
 		'email' => 'Correo Electrónico',
 		'password' => 'Contraseña',
 		'btn-login' => 'Ingresar',
+		'btn-back' => 'Atrás',
 		'password-request' => 'Olvidó su contraseña?',
 		'title-register' => 'Registro de Usuarios'
 	];
