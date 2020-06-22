@@ -195,11 +195,13 @@
             let btnCancel = $('#btn-cancel-1');
             let btnConfirm = $('#btn-confirm-1');
             let inputs = $('.input-form');
+            let selectStatus = $('#inputCivilStatus');
 
             btnEdit.click((event)=>{
                 btnEdit.css("display","none");
                 btnConfirm.css("display","inline-block");
                 btnCancel.css("display", "inline-block");
+                selectStatus.removeAttr("disabled");
                 inputs.removeAttr('readonly');
             });
 
@@ -214,6 +216,7 @@
                 btnEdit.css("display","inline-block");
                 btnConfirm.css("display","none");
                 btnCancel.css("display", "none");
+                selectStatus.attr("disabled","disabled");
                 inputs.attr('readonly','1');
             });
 

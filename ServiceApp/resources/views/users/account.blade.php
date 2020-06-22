@@ -15,29 +15,66 @@
             	 <div class="card-body body-account">
             	 	<h2 class="h2-account"><i class="fas fa-users-cog"></i> Mis Datos</h2>
             	 	<button type="button" class="btn btn-dark btn-edit" id="btn-edit-1">Editar</button>
-            	 	<button type="button" class="btn btn-danger btn-cancel" id="btn-cancel-1">Cancelar</button>
-            	 	<button type="button" class="btn btn-success btn-confirm" id="btn-confirm-1">Confirmar</button>
-            	 	<form class="form-account">
+            	 	
+            	 	<form class="form-account" action="{{ url('account-update/'.Auth::user()->id) }}" method="post" enctype="multipart/form-data">
+        	 		@csrf
+					@method('PUT')
+
+
+					{{-- ********************************************************************************************************* --}}
+
+					
+					<br>
+					
         	 		 <div class="form-row">
 					    <div class="form-group col-md-6">
 					      <label for="inputFirstName">Primer Nombre</label>
-					      <input class="form-control input-form" id="inputFirstName" type="text" value="{{Auth::user()->first_name}}" readonly>
+					      <input name="first_name" class="form-control input-form  @error('first_name') is-invalid @enderror" id="inputFirstName" type="text" value="{{Auth::user()->first_name}}" readonly>
+					      @error('first_name')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						  @enderror
 					    </div>
+
+
 					    <div class="form-group col-md-6">
 					      <label for="inputFirstLastName">Primer Apellido</label>
-					      <input class="form-control input-form" id="inputFirstLastName" type="text" value="{{Auth::user()->first_lastname}}" readonly>
+					      <input name="first_lastname" class="form-control input-form @error('first_lastname') is-invalid @enderror" id="inputFirstLastName" type="text" value="{{Auth::user()->first_lastname}}" readonly>
+
+					      @error('first_lastname')
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
 					    </div>
 					 </div>
+
+					 {{-- ********************************************************************************************************* --}}
+
 					 <div class="form-row">
 					    <div class="form-group col-md-6">
 					      <label for="inputSecondName">Segundo Nombre</label>
-					      <input class="form-control input-form" id="inputSecondName" type="text" value="{{Auth::user()->second_name}}" readonly>
+					      <input name="second_name" class="form-control input-form @error('second_name') is-invalid @enderror" id="inputSecondName" type="text" value="{{Auth::user()->second_name}}" readonly>
+					      @error('second_name')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						  @enderror
 					    </div>
 					    <div class="form-group col-md-6">
 					      <label for="inputSecondLastName">Segundo Apellido</label>
-					      <input class="form-control input-form" id="inputSecondLastName" type="text" value="{{Auth::user()->second_lastname}}" readonly>
+					      <input name="second_lastname" class="form-control input-form  @error('second_lastname') is-invalid @enderror" id="inputSecondLastName" type="text" value="{{Auth::user()->second_lastname}}" readonly>
+					      @error('second_lastname')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						  @enderror
 					    </div>
 					 </div>
+
+
+					 {{-- ********************************************************************************************************* --}}
 
 					 <div class="form-row">
 					    <div class="form-group col-md-4">
@@ -46,17 +83,46 @@
 					    </div>
 					    <div class="form-group col-md-4">
 					      <label for="inputEmail">Correo Electronico</label>
-					      <input class="form-control input-form" id="inputEmail" type="text" value="{{Auth::user()->email}}" readonly>
+					      <input name="email" class="form-control input-form @error('email') is-invalid @enderror" id="inputEmail" type="text" value="{{Auth::user()->email}}" readonly>
+					      @error('email')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						  @enderror
 					    </div>
 					    <div class="form-group col-md-4">
 					      <label for="inputPhone">Telefono</label>
-					      <input class="form-control input-form" id="inputPhone" type="text" value="{{Auth::user()->phone}}" readonly>
+					      <input  name="phone" class="form-control input-form @error('phone') is-invalid @enderror" id="inputPhone" type="text" value="{{Auth::user()->phone}}" readonly>
+
+					      @error('phone')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						  @enderror
 					    </div>
 					 </div>
+
+                    {{-- ********************************************************************************************************* --}}
+
+
 					 <div class="form-row">
 					    <div class="form-group col-md-4">
 					      <label for="inputCivilStatus">Estado Civil</label>
-					      <input class="form-control input-form" id="inputCivilStatus" type="text" value="{{Auth::user()->civil_status}}" readonly>
+
+					      <select name="civil_status" class="form-control @error('civil_status') is-invalid @enderror" id="inputCivilStatus" disabled>
+							<option value="">Seleccione...</option>
+							<option value="Soltero" @if(old('civil_status', Auth::user()->civil_status)=='Soltero') selected @endif>Soltero</option>
+							<option value="Casado" @if(old('civil_status', Auth::user()->civil_status)=='Casado') selected @endif>Casado</option>
+							<option value="Otro" @if(old('civil_status', Auth::user()->civil_status)=='Otro') selected @endif>Otro</option>
+						  </select>
+
+					      
+
+					      @error('civil_status')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						  @enderror
 					    </div>
 					    <div class="form-group col-md-4">
 					      <label for="inputGender">Genero</label>
@@ -67,6 +133,11 @@
 					      <input class="form-control" id="inputRol" type="text" value="{{Auth::user()->role}}" readonly>
 					    </div>
 					 </div>
+<div class="form-row">
+						<button type="button" class="btn btn-danger btn-cancel" id="btn-cancel-1">Cancelar</button>
+					    <button type="submit" class="btn btn-success btn-confirm" id="btn-confirm-1">Confirmar</button>
+					</div>
+					 
             	 	</form>
             	 </div>
             </div>

@@ -26,12 +26,12 @@ class UserRequest extends FormRequest
         if($this->method() == 'PUT'){
             //Form Update
             return [
-                'identification_user' => 'required|min:4|unique:users',
+                'identification_user' => 'min:4',
                 'first_name' => 'required|min:4',
-                'second_name' => 'required|min:4',
+                'second_name' => 'min:4',
                 'first_lastname' => 'required|min:4',
                 'second_lastname' => 'required|min:4',
-                'email' => 'required|email|unique:users',
+                'email' => 'email',
                 'phone' => 'required|numeric',
                 'civil_status' => 'required'
             ];

@@ -168,4 +168,21 @@ class UserController extends Controller
         
         return redirect('users')->with('message', 'El usuario fué desactivado con éxito!');
     }
+
+
+    public function updateAccount(UserRequest $request, $id){
+        $user = User::find($id);
+        $user->first_name = $request->first_name;
+        $user->second_name = $request->second_name;
+        $user->first_lastname = $request->first_lastname;
+        $user->second_lastname = $request->second_lastname;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->civil_status = $request->civil_status;
+        $user->email_verified_at = now();
+            
+         if($user->save()) {
+            return redirect('account')->with('message', 'Informacion del perfil fué modificada con éxito');
+        }
+    }
 }

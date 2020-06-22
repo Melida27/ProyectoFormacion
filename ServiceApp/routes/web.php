@@ -26,6 +26,7 @@ Route::put('users/desactivar/{id}', 'UserController@desactivar');
 Route::get('get-address/{id}', 'AddressController@getAddress');
 
 Route::get('account', 'UserController@myAccount');
+Route::put('account-update/{id}', 'UserController@updateAccount');
 Route::put('update-photo', 'UserController@updatePhoto');
 
 Route::get('showCategory', 'CategoryController@show');
