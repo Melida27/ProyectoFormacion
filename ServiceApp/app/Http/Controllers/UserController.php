@@ -185,4 +185,11 @@ class UserController extends Controller
             return redirect('account')->with('message', 'Informacion del perfil fué modificada con éxito');
         }
     }
+
+    public function pdf(){
+        $users = User::all();
+        $pdf = \PDF::loadView('users.pdf', compact('users'));
+        set_time_limit(0);
+        return $pdf->download('listUsers.pdf');
+    }
 }

@@ -32,6 +32,8 @@ Route::put('update-photo', 'UserController@updatePhoto');
 Route::get('showCategory', 'CategoryController@show');
 Route::get('showService/{id}', 'ServiceController@show');
 
+Route::get('generate/pdf/users', 'UserController@pdf');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

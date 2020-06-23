@@ -11,6 +11,11 @@
 					<i class="fa fa-plus"></i> 
 					Adicionar Usuario
 				</a>
+
+				<a href="{{ url('generate/pdf/users') }}" class="btn btn-danger">
+					<i class="fa fa-file-pdf"></i> 
+					Reporte PDF
+				</a>
 				
 				<br>
 				<hr>
