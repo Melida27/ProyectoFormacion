@@ -38,8 +38,8 @@ $(document).ready(function(){
 	                let divColDepartment = document.createElement('div');
 	                divColDepartment.setAttribute('class', 'col');
 
-	                // let divColBtnEliminar = document.createElement('div');
-	                // divColBtnEliminar.setAttribute('class', 'col');
+	                let divColBtnEliminar = document.createElement('div');
+	                divColBtnEliminar.setAttribute('class', 'col');
 
 	                let btnEliminar = document.createElement('button');
                     btnEliminar.innerHTML = 'Eliminar';
@@ -68,13 +68,14 @@ $(document).ready(function(){
 	                divColNeighborhood.append(inputNeighborhood);
 	                divColMunicipality.append(inputMunicipality);
 	                divColDepartment.append(inputDepartment);
+	                divColBtnEliminar.append(btnEliminar);
 
 	                divRow.append(divColAddress);
 	                divRow.append(divColNeighborhood);
 	                divRow.append(divColMunicipality);
 	                divRow.append(divColDepartment);
 
-	                buttons.append(btnEliminar);
+	                divRow.append(divColBtnEliminar);
 
 	                formAddresses.append(divRow);
             	}

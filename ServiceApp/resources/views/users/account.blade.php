@@ -205,11 +205,11 @@
 			<div class="modal-body">
 				<form action="" id="form-addresses">
 
-				</form>
-                <div id="buttons">
-                	<button class="btn-delete-address btn btn-danger" type="button" data-id="8">Eliminar</button>
 
-                </div> 
+				</form>
+				<div class="col">
+						<button class="btn-delete-address btn btn-danger" type="button" data-id="7">Eliminar</button>
+					</div>
 
 			</div>
 
@@ -222,6 +222,5 @@
 
 <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{asset('js/account.js')}}"></script>
-
 @include('menu.menu');
 @endsection
