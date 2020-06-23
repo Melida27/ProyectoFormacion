@@ -144,6 +144,11 @@
 						<i class="fa fa-address-card"></i>
 						Direcciones
 					</button>
+
+					<button type="button" class="btn btn-success"data-toggle="modal" data-target="#modalNewAddress" >
+						<i class="fa fa-plus"></i>
+						Nueva Dirección
+					</button>
             	 </div>
             </div>
         </div>
@@ -207,15 +212,89 @@
 
 
 				</form>
-				<div class="col">
-						<button class="btn-delete-address btn btn-danger" type="button" data-id="7">Eliminar</button>
-					</div>
 
 			</div>
 
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="modalNewAddress" tabindex="-1" role="dialog" aria-labelledby="modalNewAddress" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Nueva Dirección</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			<div class="modal-body">
+               <form action="{{ url('address-account') }}" method="post" enctype="multipart/form-data" id="form-address">
+						@csrf
+						<div class="form-row">
+						    <div class="form-group col-md-12">
+						      	<input type="hidden" name="fk_user" class="form-control" value="{{Auth::user()->id}}">
+						    </div>
+						</div>
+						{{-- ********************************************************************************************************* --}}
+						<div class="form-row">
+						    <div class="form-group col-md-12">
+						      	<label for="address">Dirección</label>
+						      	<input type="text" name="address" class="form-control @error('address') is-invalid @enderror">
+
+						      	@error('address')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
+						    </div>
+						</div>
+						{{-- ********************************************************************************************************* --}}
+						<div class="form-row">
+						    <div class="form-group col-md-12">
+						      	<label for="neighborhood">Barrio</label>
+						      	<input type="text" name="neighborhood" class="form-control @error('neighborhood') is-invalid @enderror">
+
+						      	@error('neighborhood')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
+						    </div>
+						</div>
+						{{-- ********************************************************************************************************* --}}
+						<div class="form-group">
+							<label for="departments">Departamentos</label>
+							<select name="departments" class="form-control" id="select_departments">
+								<option value="">Seleccione Departamento...</option>
+							</select>
+						</div>
+						{{-- ********************************************************************************************************* --}}
+						<div class="form-group">
+							<label for="fk_municipality">Municipios</label>
+							<select name="fk_municipality" id="select_municipalities" class="form-control">
+								<option value="">Seleccione Municipio...</option>
+							</select>
+						</div>
+						{{-- ********************************************************************************************************* --}}
+
+						</div>
+
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-custom" id="btn-add-user">
+								<i class="fa fa-save"></i>
+								Guardar
+							</button>
+							<button type="reset" class="btn btn-dark" data-dismiss="modal">
+								Cancelar
+							</button>
+						</div>
+			</form>
 		</div>
 	</div>
 </div>

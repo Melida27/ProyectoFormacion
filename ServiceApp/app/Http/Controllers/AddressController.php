@@ -65,6 +65,19 @@ class AddressController extends Controller
         }
     }
 
+    public function addressAccount(Request $request)
+    {
+        $address = new Address;
+        $address->address = $request->address;
+        $address->neighborhood = $request->neighborhood;
+        $address->fk_municipality = $request->fk_municipality;
+        $address->fk_user = $request->fk_user;
+
+        if($address->save()){
+            return redirect('account')->with('message', 'La dirección fué adicionada con Éxito!');
+        }
+    }
+
     /**
      * Display the specified resource.
      *

@@ -1,14 +1,13 @@
 $(document).ready(function(){
+	var idUserUnique = $('#btn-addresses').attr('data-id');
 	$('#btn-addresses').click(function(event) {
-		var buttons = $('#buttons');
-		var idUserUnique = $(this).attr('data-id');
+		
         getAdresses(idUserUnique);
 
     });	
 
     function getAdresses(idUser){
     	let formAddresses = $('#form-addresses');
-		let contador = 0;
     	$.get('/get-address/' + idUser, function(addresses){
          	
       
@@ -90,10 +89,23 @@ $(document).ready(function(){
 
     $('body').on('click', '.btn-delete-address', function(event) {
     	event.preventDefault();
-    	alert('hola');
+    	let dataIdAddress = $(this).attr('data-id');
+    	$.ajax({
+    		url: '/addresses/'+dataIdAddress,
+    		type: 'DELETE',
+    		headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    	})
+    	.done(function() {
+    		getAdresses(idUserUnique);
+    	})
+    	.fail(function() {
+    		console.log("error");
+    	})
+    	.always(function() {
+    		console.log("complete");
+    	});
+    	
     });
-
-    // $('.btn-delete-address').on('click',(event)=> {
-    // 	console.log("Hola mundo");
-    // });
 });
