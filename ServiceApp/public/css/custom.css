@@ -366,3 +366,8 @@ a {
     background: #C5C5F1;
     text-decoration: none;
 }
+
+svg path,
+svg rect{
+  fill: #004B5B;
+}
