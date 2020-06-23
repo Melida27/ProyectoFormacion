@@ -88,7 +88,12 @@ $(document).ready(function(){
     }
 
 
-    $('.btn-delete-address').on('click',(event)=> {
-    	console.log("Hola mundo");
+    $('body').on('click', '.btn-delete-address', function(event) {
+    	event.preventDefault();
+    	alert('hola');
     });
+
+    // $('.btn-delete-address').on('click',(event)=> {
+    // 	console.log("Hola mundo");
+    // });
 });
