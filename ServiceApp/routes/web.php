@@ -26,6 +26,8 @@ Route::put('users/desactivar/{id}', 'UserController@desactivar');
 Route::get('get-address/{id}', 'AddressController@getAddress');
 Route::post('address-account', 'AddressController@addressAccount');
 
+Route::post('users/search', 'UserController@search');
+
 Route::get('account', 'UserController@myAccount');
 
 Route::put('account-update/{id}', 'UserController@updateAccount');

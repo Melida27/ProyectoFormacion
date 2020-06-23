@@ -17,6 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome-all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/search.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 </head>
 <body>
@@ -374,7 +375,32 @@
                 });          
             });
 
-             /* ----------------------------------------------------------------------------- */
+            /* ----------------------------------------------------------------------------- */
+
+            $('body').on('keyup', '#qsearch', function(event) {
+                event.preventDefault();
+                $m = $('#tmodel').val();
+                $q = $(this).val();
+                $t = $('input[name=_token]').val();
+                $('.loader').removeClass('d-none');
+                $('.table').hide();
+                $sto = setTimeout(function(){
+                    clearTimeout($sto);
+                    $.post($m+'/search', {
+                        q: $q, 
+                        _token: $t}, function(data) {
+                            $('.loader').addClass('d-none');
+
+                            $('#content').html(data);
+
+                            $('.table').fadeIn('slow');
+                        });
+                }, 1600);
+            });
+
+            /* ----------------------------------------------------------------------------- */
+
+            /* ----------------------------------------------------------------------------- */
         });
     </script>
 </body>

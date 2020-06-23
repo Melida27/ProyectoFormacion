@@ -1,0 +1,72 @@
+.box{
+  display: inline-block;
+  /*margin: 100px auto;*/
+  width: 150px;
+  height: 20px;
+  vertical-align: top;
+}
+
+.container-2{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.container-2 input#qsearch{
+  width: 37px;
+  height: 37px;
+  background: #2b303b;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #262626;
+  padding-left: 35px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+ 
+  -webkit-transition: width .55s ease;
+  -moz-transition: width .55s ease;
+  -ms-transition: width .55s ease;
+  -o-transition: width .55s ease;
+  transition: width .55s ease;
+}
+
+.container-2 input#qsearch::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.container-2 input#qsearch:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.container-2 input#qsearch::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.container-2 input#qsearch:-ms-input-placeholder {  
+   color: #65737e;  
+}
+
+.container-2 .icon{
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 8px;
+  z-index: 0;
+  color: #4f5b66;
+}
+
+.container-2 input#qsearch:focus, .container-2 input#qsearch:active{
+  outline:none;
+  width: 300px;
+}
+ 
+.container-2:hover input#qsearch{
+  width: 300px;
+}
+ 
+.container-2:hover .icon{
+  color: #93a2ad;
+}

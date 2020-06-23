@@ -17,59 +17,72 @@
 					Reporte PDF
 				</a>
 				
+				<div class="box">
+					<div class="container-2">
+					    <span class="icon"><i class="fa fa-search"></i></span>
+					    <input type="hidden" id="tmodel" value="users">
+					    <input type="search" id="qsearch" autocomplete="off" placeholder="Buscar...">
+					</div>
+				</div>
+
+				<div class="loader text-center d-none">
+					<img src="{{ asset('imgs/loader.gif') }}" width="140px">
+					<br>
+					<br>
+				</div>
+
 				<br>
 				<hr>
 
 				@if(count($users) > 0)
-
-				<table class="table table-striped table-hover ">
-					<thead>
-						<tr>
-							<th>Nombre</th>
-							<th>Correo Electrónico</th>
-							<th>Teléfono</th>
-							<th class="text-center">Estado</th>
-							<th>Acciones</th>
-						</tr>
-					</thead>
-					<tbody id="content">
-						@foreach ($users as $user)
+					<table class="table table-striped table-hover ">
+						<thead>
 							<tr>
-								<td>{{ $user->first_name }}</td>
-								<td>{{ $user->email }}</td>
-								<td>{{ $user->phone }}</td>
-
-								<td class="text-center">
-									@if ($user->status == "1")
-										<i class="fa fa-check text-success"></i>
-									@else
-										<i class="fa fa-times text-danger"></i> 
-									@endif
-								</td>
-
-								<td>
-									<a href="{{ url('users/'.$user->id )}}" class="btn btn-sm btn-custom">
-										<i class="fa fa-search"></i>
-									</a>
-
-									<a href="{{ url('users/'.$user->id.'/edit/')}}" class="btn btn-sm btn-custom btn-edit-user" data-id="{{ $user->id }}">
-										<i class="fa fa-pen"></i>
-									</a>
-
-									<form action="{{ url('users/desactivar/'.$user->id) }}" method="post" style="display: inline-block;">
-										@csrf
-										@method('PUT')
-										<button type="button" class="btn btn-sm btn-custom-danger btn-desactivar">
-											<i class="fa fa-ban"></i>
-										</button>
-									</form>
-								</td>
+								<th>Nombre</th>
+								<th>Correo Electrónico</th>
+								<th>Teléfono</th>
+								<th class="text-center">Estado</th>
+								<th>Acciones</th>
 							</tr>
-						@endforeach
-					</tbody>
-				</table>
+						</thead>
+						<tbody id="content">
+							@foreach ($users as $user)
+								<tr>
+									<td>{{ $user->first_name }}</td>
+									<td>{{ $user->email }}</td>
+									<td>{{ $user->phone }}</td>
+
+									<td class="text-center">
+										@if ($user->status == "1")
+											<i class="fa fa-check text-success"></i>
+										@else
+											<i class="fa fa-times text-danger"></i> 
+										@endif
+									</td>
+
+									<td>
+										<a href="{{ url('users/'.$user->id )}}" class="btn btn-sm btn-custom">
+											<i class="fa fa-search"></i>
+										</a>
+
+										<a href="{{ url('users/'.$user->id.'/edit/')}}" class="btn btn-sm btn-custom btn-edit-user" data-id="{{ $user->id }}">
+											<i class="fa fa-pen"></i>
+										</a>
+
+										<form action="{{ url('users/desactivar/'.$user->id) }}" method="post" style="display: inline-block;">
+											@csrf
+											@method('PUT')
+											<button type="button" class="btn btn-sm btn-custom-danger btn-desactivar">
+												<i class="fa fa-ban"></i>
+											</button>
+										</form>
+									</td>
+								</tr>
+							@endforeach
+						</tbody>
+					</table>
 				@else
-				<h4>No hay usuarios registrados...</h4>
+					<h4>No hay usuarios registrados...</h4>
 				@endif
 				
 				{{ $users->links() }}

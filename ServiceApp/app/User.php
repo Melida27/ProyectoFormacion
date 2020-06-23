@@ -52,4 +52,12 @@ class User extends Authenticatable
     public function addresses(){
         return $this->hasMany('App\Address');
     }
+
+    public function scopeNames($users, $q){
+        if(trim($q)){
+            $users->where('first_name', 'LIKE', "%$q%")
+                    ->orWhere('email', 'LIKE', "%$q%")
+                    ->orWhere('identification_user', 'LIKE', "%$q%");
+        }
+    }
 }

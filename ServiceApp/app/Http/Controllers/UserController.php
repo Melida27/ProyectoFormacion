@@ -192,4 +192,10 @@ class UserController extends Controller
         set_time_limit(0);
         return $pdf->download('listUsers.pdf');
     }
+
+    public function search(Request $request){
+        //Scope
+        $users = User::names($request->q)->orderBy('id', 'ASC')->paginate(20);
+        return view('users.search')->with('users', $users);
+    }
 }
