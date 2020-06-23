@@ -100,6 +100,7 @@ class UserController extends Controller
         return view('users.edit')->with('user', $user);
     }
 
+
     /**
      * Update the specified resource in storage.
      *

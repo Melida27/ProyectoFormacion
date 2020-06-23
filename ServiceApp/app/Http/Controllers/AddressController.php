@@ -78,6 +78,20 @@ class AddressController extends Controller
         }
     }
 
+     public function editUserAddress(Request $request)
+    {
+        $address = new Address;
+        $address->address = $request->address;
+        $address->neighborhood = $request->neighborhood;
+        $address->fk_municipality = $request->fk_municipality;
+        $address->fk_user = $request->fk_user;
+
+        if($address->save()){
+            $user = User::find($address->fk_user);
+            return view('users.edit')->with('user', $user);
+        }
+    }
+
     /**
      * Display the specified resource.
      *
