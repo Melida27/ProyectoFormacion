@@ -26,9 +26,9 @@ class HomeController extends Controller
     {
         if (Auth::user()->role == 'Admin'){
             return view('dashboard-admin');
-        } else if (Auth::user()->role == 'Customer'){
+        } else if (Auth::user()->role == 'Cliente'){
             return view('dashboard-customer');
-        } else if (Auth::user()->role == 'Technical'){
+        } else if (Auth::user()->role == 'Tecnico'){
             return view('dashboard-technical');
         }
     }
