@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['allCategories']]);
     }
 
     /**
@@ -31,5 +32,11 @@ class HomeController extends Controller
         } else if (Auth::user()->role == 'Tecnico'){
             return view('dashboard-technical');
         }
+    }
+
+    public function allCategories()
+    {
+        $cats = Category::all();
+        return view('categories.all_categories')->with('cats', $cats);
     }
 }

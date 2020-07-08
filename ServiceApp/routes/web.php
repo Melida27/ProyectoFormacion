@@ -39,6 +39,8 @@ Route::get('showService/{id}', 'ServiceController@show');
 
 Route::get('generate/pdf/users', 'UserController@pdf');
 
+Route::get('/allCategories', 'HomeController@allCategories');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
