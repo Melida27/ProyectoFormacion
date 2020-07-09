@@ -60,6 +60,17 @@
 					</div>
 
 					<div class="form-group">
+						<label for="description">Descripción</label>
+						<textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="5">{{ old('description', $service->description) }}</textarea>
+
+						@error('description')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+					</div>
+
+					<div class="form-group">
 						<label for="fk_category">Categoría</label>
 						<select name="fk_category" class="form-control @error('fk_category') is-invalid @enderror">
 							<option value="">Seleccione...</option>

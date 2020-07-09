@@ -105,9 +105,6 @@ a {
 	text-decoration: none !important;
 }
 
-
-
-
 .modal.left .modal-dialog {
 	position:fixed;
 	left: 0;
@@ -370,4 +367,9 @@ a {
 svg path,
 svg rect{
   fill: #004B5B;
+}
+
+#textCategory {
+	background-color: #fff !important;
+	color: #000;
 }

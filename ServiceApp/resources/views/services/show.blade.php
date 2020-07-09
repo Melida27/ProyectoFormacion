@@ -10,6 +10,11 @@
 		  <td><img src="{{ $query[0]->image }}" alt="" class="img-thumbnail" width="300"></td>
 		</tr>
 
+		<tr>  
+			<th>DESCRIPCIÓN: </th>
+			<td>{{ $query[0]->description }}</td>
+		</tr>
+
 		<tr>
 			<th>CATEGORÍA:</th>
 			<td>{{ $query[0]->name_category}}</td>

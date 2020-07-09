@@ -40,6 +40,7 @@ Route::get('showService/{id}', 'ServiceController@show');
 Route::get('generate/pdf/users', 'UserController@pdf');
 
 Route::get('/allCategories', 'HomeController@allCategories');
+Route::get('/servicesbycategory/{id}', 'HomeController@servicesbycat');
 
 Auth::routes();
 

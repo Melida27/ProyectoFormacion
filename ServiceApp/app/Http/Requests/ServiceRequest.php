@@ -27,6 +27,7 @@ class ServiceRequest extends FormRequest
             //Form Update
             return [
                 'name_service' => 'required|min:4|unique:services',
+                'description' => 'required|min:4',
                 'image' => 'max:1000',
                 'fk_category' => 'required'
             ];
@@ -34,6 +35,7 @@ class ServiceRequest extends FormRequest
             //Form Create
             return [
                 'name_service' => 'required|min:4|unique:services',
+                'description' => 'required|min:4',
                 'image' => 'required|image|max:1000',
                 'fk_category' => 'required'
             ];
@@ -45,6 +47,8 @@ class ServiceRequest extends FormRequest
             'name_service.required' => 'El campo nombre es obligatorio',
             'name_service.min' => 'El campo nombre debe tener mínimo :min caracteres',
             'name_service.unique' => 'El campo nombre debe ser único',
+            'description.required' => 'El campo descripción es obligatorio',
+            'description.min' => 'El campo descripción debe tener mínimo :min caracteres',
             'image.required' => 'El campo imagen es obligatorio',
             'image.image' => 'El campo imagen debe ser de tipo imagen',
             'image.max' => 'El campo imagen no puede superar 1 kilobyte',

@@ -60,7 +60,7 @@
           <div class="slide__text">
             <h2 class="slide__text-heading">Servicios Hogar</h2>
             <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
-            <a class="slide__text-link">Conoce nuestros servicios</a>
+            <a class="slide__text-link" href="{{ url('/allCategories') }}">Conoce nuestros servicios</a>
 
             <div class="buttons mt-5 ">
               <button type="button" class="btn btn-custom text-center">
@@ -90,7 +90,7 @@
           <div class="slide__text">
             <h2 class="slide__text-heading">Mecánica</h2>
             <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
-            <a class="slide__text-link">Conoce nuestros servicios</a>
+            <a class="slide__text-link" href="{{ url('/allCategories') }}">Conoce nuestros servicios</a>
 
             <div class="buttons mt-5 ">
               <button type="button" class="btn btn-custom text-center">
@@ -120,7 +120,7 @@
           <div class="slide__text">
             <h2 class="slide__text-heading">Telecomunicaciones</h2>
             <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
-            <a class="slide__text-link">Conoce nuestros servicios</a>
+            <a class="slide__text-link" href="{{ url('/allCategories') }}">Conoce nuestros servicios</a>
 
              <div class="buttons mt-5 ">
               <button type="button" class="btn btn-custom text-center">

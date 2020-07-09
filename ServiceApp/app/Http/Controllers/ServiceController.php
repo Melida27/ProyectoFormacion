@@ -55,6 +55,7 @@ class ServiceController extends Controller
     {
         $service = new Service;
         $service->name_service = $request->name_service;
+        $service->description = $request->description;
         $service->fk_category = $request->fk_category;
 
         if($request->hasFile('image')) {
@@ -78,7 +79,7 @@ class ServiceController extends Controller
     {
         //$id = $request->get("id");
         $query = DB::table('services')
-                            ->select('services.name_service', 'services.image', 'categories.name_category','services.created_at','services.updated_at')
+                            ->select('services.name_service', 'services.description','services.image', 'categories.name_category','services.created_at','services.updated_at')
                             ->join('categories', 'services.fk_category', '=', 'categories.id')
                             ->where('services.id', '=', $id)
                             ->get();
@@ -112,6 +113,7 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         $service->name_service = $request->name_service;
+        $service->description = $request->description;
         $service->fk_category = $request->fk_category;
 
         if($request->hasFile('image')) {

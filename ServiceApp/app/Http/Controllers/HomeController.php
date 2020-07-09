@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Category;
+use App\Service;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['allCategories']]);
+        $this->middleware('auth', ['except' => ['allCategories', 'servicesbycat']]);
     }
 
     /**
@@ -38,5 +39,10 @@ class HomeController extends Controller
     {
         $cats = Category::all();
         return view('categories.all_categories')->with('cats', $cats);
+    }
+
+    public function servicesbycat($id){
+        $services = Service::where('fk_category', '=', $id)->get();
+        return view('services.servicesbycat')->with('services', $services);
     }
 }

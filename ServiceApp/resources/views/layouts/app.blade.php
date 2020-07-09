@@ -313,8 +313,6 @@
                 console.log(select_municipalities.val());   
             });
 
-            
-
             /* ----------------------------------------------------------------------------- */
 
             $('#btn-omitir').click(function(event){
