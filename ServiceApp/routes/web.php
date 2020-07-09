@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::user() != null){
+    	return redirect('/home');
+    }else{
+    	return view('welcome');
+    }
 });
 
 Route::resource('categories', 'CategoryController');
@@ -44,4 +48,8 @@ Route::get('/servicesbycategory/{id}', 'HomeController@servicesbycat');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('validateCurriculum');
+
+Route::get('/curriculum', function(){
+	return view('curriculum.create_curriculum');
+});
