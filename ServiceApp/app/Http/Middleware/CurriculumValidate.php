@@ -22,12 +22,12 @@ class CurriculumValidate
     {
         if(Auth::user()->role == 'Tecnico'){
 
-            $curriculum = Curriculum::find(Auth::user()->id);
+            $curriculum = Curriculum::where('fk_user', '=', Auth::user()->id)->get();
 
-            if($curriculum != null){
+            if(count($curriculum) > 0){
                 return $next($request);
             }else{
-                return redirect('/curriculum')->with('message', 'Debe agregar su hoja de vida para continuar');
+                return redirect('/curriculum')->with('info', 'Debe agregar su hoja de vida para continuar');
             }
         }else{
             return $next($request);

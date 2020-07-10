@@ -164,6 +164,28 @@
 
             /* ----------------------------------------------------------------------------- */
 
+            @if(session('error'))
+                Swal.fire({
+                    title: 'Error',
+                    text: '{{ session('error') }}',
+                    icon: 'error',
+                    confirmButtonColor: '#00796b',
+                });
+            @endif
+
+            /* ----------------------------------------------------------------------------- */
+
+            @if(session('info'))
+                Swal.fire({
+                    title: 'Alerta',
+                    text: '{{ session('info') }}',
+                    icon: 'warning',
+                    confirmButtonColor: '#E5A62B',
+                });
+            @endif
+
+            /* ----------------------------------------------------------------------------- */
+
             $('.btn-upload').click(function(event){
                 $('#photo').click();
             });
