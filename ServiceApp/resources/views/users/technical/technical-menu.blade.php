@@ -1,5 +1,9 @@
   <link href="{{ asset('css/technical.css') }}" rel="stylesheet">
-  <body><div class="area"></div><nav class="main-menu">
+  <body><div class="area">
+      
+
+  <img src="{{ asset('imgs/home_technical.svg') }}">
+  </div><nav class="main-menu">
             <ul>
                 <li>
                     <a href="{{ url('home') }}">

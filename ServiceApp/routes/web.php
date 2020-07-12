@@ -46,6 +46,10 @@ Route::get('generate/pdf/users', 'UserController@pdf');
 Route::get('/allCategories', 'HomeController@allCategories');
 Route::get('/servicesbycategory/{id}', 'HomeController@servicesbycat');
 
+Route::get('/orders', function(){
+   return view('users.technical.orders');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('validateCurriculum');
