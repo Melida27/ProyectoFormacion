@@ -133,3 +133,51 @@ height: 100%;
 	height: 600px;
 	margin-left: 320px !important;
 }
+
+
+/*css para las cardas de ordenes*/
+
+.bkg_yellow {
+  background-image: url('/imgs/bkg_yellow.jpg');
+}
+
+.bkg_red {
+  background-image: url('/imgs/bkg_red.png');
+}
+
+.bkg_green {
+  background-image: url('/imgs/bkg_green.jpg');
+}
+
+.bkg_blue {
+  background-image: url('/imgs/bkg_blue.jpg');
+}
+
+  .card-order{
+    width: 800px;
+    height: 80px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px auto;
+  }
+
+.pagination {
+  margin:0px auto;
+   width: 200px;
+}
+
+.title-orders {
+  margin-bottom: 50px;
+}
+
+.area-orders {
+  opacity: 0.8;
+  background-image: url('/imgs/bg-all-categories.jpg');
+  background-size: cover;
+  height: 100%;
+}
+
+.area-orders2 {
+  height: 100%;
+   background-color: rgba(0,108,255,0.4);
+}

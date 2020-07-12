@@ -60,7 +60,7 @@
                     </a>
                 </li>
                 <li>
-                   <a href="{{url('view-orders')}}">
+                   <a href="{{url('orders')}}">
                        <i class="fa fa-table fa-2x"></i>
                         <span class="nav-text">
                             Mis Ordenes
