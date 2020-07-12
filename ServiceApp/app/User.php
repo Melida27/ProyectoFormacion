@@ -53,6 +53,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Address');
     }
 
+    public function orders(){
+        return $this->hasMany('App\Order');
+    }
+
     public function scopeNames($users, $q){
         if(trim($q)){
             $users->where('first_name', 'LIKE', "%$q%")
