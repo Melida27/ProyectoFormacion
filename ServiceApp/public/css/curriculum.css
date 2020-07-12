@@ -1,0 +1,14 @@
+body{
+	background: url('/imgs/bg-curriculum.jpg') no-repeat;
+	background-size: cover;
+}
+
+.container-forms{
+	background-color: rgba(0, 0, 0, .8);
+	border-radius: 5px;
+	color: #fff;
+}
+
+hr{
+	background-color: #fff;
+}
