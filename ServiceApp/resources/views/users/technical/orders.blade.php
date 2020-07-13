@@ -1,4 +1,5 @@
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/fontawesome-all.min.css') }}" rel="stylesheet">
 
   <link href="{{ asset('css/technical.css') }}" rel="stylesheet">
   <body>
@@ -6,22 +7,33 @@
         <div class="area-orders">
             <div class="area-orders2">
 
-                <h1 class="text-center title-orders"><i class="fa fa-users"></i> Lista de Ordenes</h1>
+                <h1 class="text-center title-orders"> Lista de Ordenes</h1>
                
                 @foreach ($orders as $order)
               @if($order->status_order == 'Pendiente')
                 <div class="card-order bkg_yellow">
-
+                  <h3 class="date-order">Fecha Creacion:  {{$order->date_order}}</h3>
+                  <button type="button" class="btn btn-yellow btn-more">Administrar Orden</button>
+                  <h3 class="date-order">Estado:  {{$order->status_order}}</h3>
                 </div>
               @elseif($order->status_order == 'Finalizado')
-                <div class="card-order bkg_green"></div>
+                <div class="card-order bkg_green">
+                    <h3 class="date-order">Fecha Creacion:  {{$order->date_order}}</h3>
+                  <button type="button" class="btn btn-green btn-more">Administrar Orden</button>
+                  <h3 class="date-order">Estado:  {{$order->status_order}}</h3>
+                </div>
               @elseif($order->status_order == 'Rechazado')
-                <div class="card-order bkg_red"></div>
+                <div class="card-order bkg_red">
+                    <h3 class="date-order">Fecha Creacion:  {{$order->date_order}}</h3>
+                  <button type="button" class="btn btn-red btn-more">Administrar Orden</button>
+                  <h3 class="date-order">Estado:  {{$order->status_order}}</h3>
+                </div>
               @elseif($order->status_order == 'Proceso')
                 <div class="card-order bkg_blue">
-                  <span>Fecha Creacion {{$order->date_order}}</span>
-                  <span>Estado {{$order->status_order}}</span>
-                  <a href="#">Ver Mas</a>
+                  <h3 class="date-order">Fecha Creacion:  {{$order->date_order}}</h3>
+                  <button type="button" class="btn btn-blue btn-more">Administrar Orden</button>
+                  <h3 class="date-order">Estado:  {{$order->status_order}}</h3>
+                  
                 </div>
               @endif
               @endforeach

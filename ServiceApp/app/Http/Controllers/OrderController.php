@@ -16,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('fk_technical','=',Auth::user()->id)->orderBy('date_order', 'ASC')->paginate(5);
+        $orders = Order::where('fk_technical','=',Auth::user()->id)->orderBy('date_order', 'ASC')->paginate(4);
         return view('users.technical.orders')->with('orders', $orders);
     }
 

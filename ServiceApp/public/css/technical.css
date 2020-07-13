@@ -155,10 +155,9 @@ height: 100%;
 
   .card-order{
     width: 800px;
-    height: 80px;
-    border: 1px solid black;
     border-radius: 10px;
-    margin: 10px auto;
+    margin: 20px auto;
+    padding: 5px;
   }
 
 .pagination {
@@ -167,17 +166,57 @@ height: 100%;
 }
 
 .title-orders {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  color: white;
+  padding-top: 30px;
 }
 
 .area-orders {
   opacity: 0.8;
-  background-image: url('/imgs/bg-all-categories.jpg');
+  background-image: url('/imgs/bg-curriculum.jpg');
   background-size: cover;
   height: 100%;
 }
 
 .area-orders2 {
   height: 100%;
-   background-color: rgba(0,108,255,0.4);
+   background-color: rgba(0,0,0,0.8);
+}
+
+.date-order, 
+.status-order {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  margin: 5px;
+}
+
+.btn-more {
+  width: 100%;
+}
+
+.icon {
+  display: inline-block;
+}
+
+
+.btn-blue,
+.btn-yellow,
+.btn-green,
+.btn-red {
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+}
+
+.btn-blue:hover,
+.btn-yellow:hover,
+.btn-green:hover,
+.btn-red:hover {
+  color: white;
+  background-color: rgba(0,0,0,0.1);
+}
+
+
+.page-item .active {
+  background-color: red !important;
 }
