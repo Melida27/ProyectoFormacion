@@ -26,6 +26,7 @@ Route::resource('municipalities', 'MunicipalityController');
 Route::resource('addresses', 'AddressController');
 Route::resource('services', 'ServiceController');
 Route::resource('orders', 'OrderController');
+Route::resource('servicesofuser', 'ServiceUserController');
 
 Route::put('users/desactivar/{id}', 'UserController@desactivar');
 Route::get('get-address/{id}', 'AddressController@getAddress');
@@ -46,6 +47,8 @@ Route::get('generate/pdf/users', 'UserController@pdf');
 
 Route::get('/allCategories', 'HomeController@allCategories');
 Route::get('/servicesbycategory/{id}', 'HomeController@servicesbycat');
+
+Route::get('/allservices', 'ServiceUserController@allservices');
 
 
 Auth::routes();

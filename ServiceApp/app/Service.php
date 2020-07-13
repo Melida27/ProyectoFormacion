@@ -22,4 +22,8 @@ class Service extends Model
     public function orders(){
         return $this->hasMany('App\Order');
     }
+
+    public function servicesofuser(){
+        return $this->hasMany('App\ServiceUser');
+    }
 }

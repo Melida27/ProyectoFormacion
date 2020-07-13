@@ -87,6 +87,7 @@
 				<hr>
 				{{-- ********************************************************************************************************* --}}
 				<form>
+					@csrf
 					<h5><i class="fa fa-graduation-cap"></i>  Datos Académicos</h5>
 					<br>
 
@@ -117,22 +118,53 @@
 				<hr>
 				{{-- ********************************************************************************************************* --}}
 				<form>
+					@csrf
 					<h5><i class="fa fa-briefcase"></i>  Experiencia laboral</h5>
 					<br>
 
+					<div class="form-row">
+						<div class="form-group col-md-4">
+							<label for="company_name">Nombre Empresa</label>
+							<input type="text" name="company_name" class="form-control" id="company_name">
+						</div>
 
+						<div class="form-group col-md-4">
+							<label for="position">Cargo</label>
+							<input type="text" name="position" class="form-control" id="position">
+						</div>
+
+						<div class="form-group col-md-4">
+							<label for="time_experience_company">Tiempo Laborado</label>
+							<input type="text" name="time_experience_company" class="form-control" id="time_experience_company">
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="description">Descripción</label>
+							<textarea class="form-control" name="description" rows="3"></textarea>
+						</div>
+					</div>
 				</form>
 				<hr>
 				{{-- ********************************************************************************************************* --}}
-				<form>
+				<form action="{{ url('servicesofuser') }}" method="post">
+					@csrf
 					<h5><i class="fa fa-list"></i>  Servicios a Postularse</h5>
 					<br>
 
+					<input type="hidden" name="fk_user" value="{{ Auth::user()->id }}" id="fk_user">
 					
+					<div class="form-check" id="options-services">
+						
+					</div>
 				</form>
 				{{-- ********************************************************************************************************* --}}
 			</div>
 		</div>
 	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="{{ asset('js/curriculum.js') }}"></script>	
 </body>
 </html>
