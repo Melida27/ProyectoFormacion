@@ -83,6 +83,42 @@
 							</select>
 						</div>
 					</div>
+
+					<div class="form-row">
+						<div class="form-group ml-2">
+							<button type="submit" class="btn btn-custom">
+								<i class="fa fa-save"></i>
+								Modificar
+							</button>
+						</div>
+					</div>
+				</form>
+				<hr>
+				{{-- ********************************************************************************************************* --}}
+				<form action="{{ url('servicesofuser') }}" method="post">
+					@csrf
+					<h5><i class="fa fa-list"></i>  Servicios a Postularse</h5>
+					<br>
+
+					<input type="hidden" name="fk_user" value="{{ Auth::user()->id }}" id="fk_user">
+					
+					<div class="form-check" id="options-services">
+						
+					</div>
+					<br>
+
+					<div class="form-row">
+						<div class="form-group ml-3">
+							<button type="submit" class="btn btn-custom">
+								<i class="fa fa-save"></i>
+								Guardar
+							</button>
+							<button type="reset" class="btn btn-dark">
+								<i class="fa fa-eraser"></i>
+								Limpiar
+							</button>
+						</div>
+					</div>
 				</form>
 				<hr>
 				{{-- ********************************************************************************************************* --}}
@@ -112,6 +148,19 @@
 						<div class="form-group col-md-6">
 							<label for="description">Descripción</label>
 							<textarea class="form-control" name="description" rows="3"></textarea>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group ml-2">
+							<button type="submit" class="btn btn-custom">
+								<i class="fa fa-save"></i>
+								Guardar
+							</button>
+							<button type="reset" class="btn btn-dark">
+								<i class="fa fa-eraser"></i>
+								Limpiar
+							</button>
 						</div>
 					</div>
 				</form>
@@ -145,18 +194,18 @@
 							<textarea class="form-control" name="description" rows="3"></textarea>
 						</div>
 					</div>
-				</form>
-				<hr>
-				{{-- ********************************************************************************************************* --}}
-				<form action="{{ url('servicesofuser') }}" method="post">
-					@csrf
-					<h5><i class="fa fa-list"></i>  Servicios a Postularse</h5>
-					<br>
 
-					<input type="hidden" name="fk_user" value="{{ Auth::user()->id }}" id="fk_user">
-					
-					<div class="form-check" id="options-services">
-						
+					<div class="form-row">
+						<div class="form-group ml-2">
+							<button type="submit" class="btn btn-custom">
+								<i class="fa fa-save"></i>
+								Guardar
+							</button>
+							<button type="reset" class="btn btn-dark">
+								<i class="fa fa-eraser"></i>
+								Limpiar
+							</button>
+						</div>
 					</div>
 				</form>
 				{{-- ********************************************************************************************************* --}}

@@ -20,3 +20,14 @@ input[type = checkbox]{
 label{
 	margin-right: 20px;
 }
+
+.btn-custom {
+	background-color: #00796b !important;
+	color: #fff !important;
+}
+
+.btn-custom:hover {
+	background-color: #014f49;
+	color: #fff;
+	transform: scale(1.05);
+}
