@@ -14,10 +14,10 @@
 				<h2 class="text-center mt-3"><i class="fa fa-id-card"></i> Hoja de vida</h2>
 				<hr>
 
-				<form>
+				<form action="{{ url('curriculums') }}" method="post">
+					@csrf
 					<h5><i class="fa fa-user"></i>  Datos Personales</h5>
 					<br>
-					<input type="hidden" value="{{ Auth::user()->id }}" id="id-user">
 					{{-- ********************************************************************************************************* --}}
 					<div class="form-row">
 						<div class="form-group col-md-3">
@@ -84,19 +84,9 @@
 						</div>
 					</div>
 
-					<div class="form-row">
-						<div class="form-group ml-2">
-							<button type="submit" class="btn btn-custom">
-								<i class="fa fa-save"></i>
-								Modificar
-							</button>
-						</div>
-					</div>
-				</form>
-				<hr>
-				{{-- ********************************************************************************************************* --}}
-				<form action="{{ url('servicesofuser') }}" method="post">
-					@csrf
+					<hr>
+					{{-- ********************************************************************************************************* --}}
+
 					<h5><i class="fa fa-list"></i>  Servicios a Postularse</h5>
 					<br>
 
@@ -105,25 +95,18 @@
 					<div class="form-check" id="options-services">
 						
 					</div>
-					<br>
 
 					<div class="form-row">
-						<div class="form-group ml-3">
-							<button type="submit" class="btn btn-custom">
-								<i class="fa fa-save"></i>
-								Guardar
-							</button>
-							<button type="reset" class="btn btn-dark">
-								<i class="fa fa-eraser"></i>
-								Limpiar
-							</button>
+						<div class="form-group col-md-4 ml-4">
+							<label for="experience">Experiencia en la labor seleccionada</label>
+							<input type="text" name="experience" class="form-control" id="experience">
 						</div>
 					</div>
-				</form>
-				<hr>
-				{{-- ********************************************************************************************************* --}}
-				<form>
-					@csrf
+					<br>
+
+					<hr>
+					{{-- ********************************************************************************************************* --}}
+
 					<h5><i class="fa fa-graduation-cap"></i>  Datos Académicos</h5>
 					<br>
 
@@ -151,23 +134,9 @@
 						</div>
 					</div>
 
-					<div class="form-row">
-						<div class="form-group ml-2">
-							<button type="submit" class="btn btn-custom">
-								<i class="fa fa-save"></i>
-								Guardar
-							</button>
-							<button type="reset" class="btn btn-dark">
-								<i class="fa fa-eraser"></i>
-								Limpiar
-							</button>
-						</div>
-					</div>
-				</form>
-				<hr>
-				{{-- ********************************************************************************************************* --}}
-				<form>
-					@csrf
+					<hr>
+					{{-- ********************************************************************************************************* --}}
+
 					<h5><i class="fa fa-briefcase"></i>  Experiencia laboral</h5>
 					<br>
 
@@ -190,8 +159,8 @@
 
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<label for="description">Descripción</label>
-							<textarea class="form-control" name="description" rows="3"></textarea>
+							<label for="description_experience">Descripción</label>
+							<textarea class="form-control" name="description_experience" rows="3"></textarea>
 						</div>
 					</div>
 
@@ -214,6 +183,34 @@
 	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="{{ asset('js/sweetalert2@9.js') }}"></script>
 	<script src="{{ asset('js/curriculum.js') }}"></script>	
+
+	<script>
+		$(document).ready(function() {
+                /* ----------------------------------------------------------------------------- */
+                @if(session('message'))
+                Swal.fire({
+                    title: 'Felicitaciones',
+                    text: '{{ session('message') }}',
+                    icon: 'success',
+                    confirmButtonColor: '#00796b',
+                });
+                @endif
+
+                /* ----------------------------------------------------------------------------- */
+
+                @if(session('error'))
+                Swal.fire({
+                    title: 'Error',
+                    text: '{{ session('error') }}',
+                    icon: 'error',
+                    confirmButtonColor: '#920D0D',
+                });
+                @endif
+
+                /* ----------------------------------------------------------------------------- */
+            });
+	</script>
 </body>
 </html>
