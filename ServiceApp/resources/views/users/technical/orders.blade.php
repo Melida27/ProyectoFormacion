@@ -147,7 +147,7 @@
           <div class="modal-dialog modal-xl">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Informacion De La Orden</h5>
+                <h5 class="modal-title title-modal" id="exampleModalLabel">Orden</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -167,6 +167,16 @@
                   <div class="subCardInfo">
                       <span><strong>Score:</strong> 1</span>
                   </div>
+                </div>
+
+                <div class="cardInfoOrderDescription">
+                  <span><strong>Descripcion de la Orden</strong></span>
+                  <p class="order-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis sint porro optio commodi magni sunt laborum facilis placeat ad esse et illo dolore corporis rerum, numquam iusto? Sunt ipsam, veniam.</p>
+                </div>
+
+                <div class="buttons-order">
+                    <button class="btn btn-success">Aceptar Orden</button>
+                    <button class="btn btn-danger">Rechazar Orden</button>
                 </div>
 
 
@@ -192,10 +202,21 @@
                       <span><strong>Email:</strong> pipe96-17@hotmail.com</span>
                   </div>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+
+
+                <div class="cardInfoService">
+                <h5 class="title-info">Información Servicio</h5>
+                  <div class="subCardInfoService">
+                      <span><strong>Nombre:</strong> Computacion</span>
+                  </div>
+                  <div class="subCardInfoService">
+                      <span><strong>Descripcion:</strong> Arreglo de computadores</span>
+                  </div>
+                  </div>
+
+
+
+                </div>
               </div>
             </div>
           </div>
