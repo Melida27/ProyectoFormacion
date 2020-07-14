@@ -28,6 +28,7 @@ Route::resource('services', 'ServiceController');
 Route::resource('orders', 'OrderController');
 Route::resource('servicesofuser', 'ServiceUserController');
 Route::resource('curriculums', 'CurriculumController');
+Route::resource('studies', 'StudyController');
 
 Route::put('users/desactivar/{id}', 'UserController@desactivar');
 Route::get('get-address/{id}', 'AddressController@getAddress');

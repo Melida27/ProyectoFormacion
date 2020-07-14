@@ -2,8 +2,8 @@
    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link href="{{ asset('css/technical.css') }}" rel="stylesheet">
   <body>
-  	<div class="area">
-      <img class="img-home" src="{{ asset('imgs/home_technical.svg') }}">
+    <div class="area">
+      <h1 class="text-center">estudios</h1>
     </div>
 
   <nav class="main-menu">
