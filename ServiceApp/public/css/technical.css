@@ -228,7 +228,7 @@ height: 100%;
 .cardInfoOrder {
   margin: 0px auto;
   width: 900px;
-  height: 120px;
+  height: 100px;
 }
 
 .subCardInfo {
@@ -256,4 +256,36 @@ height: 100%;
   background-color: #004C51;
   padding: 10px;
   color: white;
+}
+
+.cardInfoService {
+  margin: 0px auto;
+  width: 900px;
+}
+
+.subCardInfoService {
+  width: 100%;
+  margin: 5px;
+  display: inline-block;
+  text-align: left;
+}
+
+.cardInfoOrderDescription {
+  margin: 0px auto;
+  width: 900px;
+}
+
+.order-description {
+  text-align: justify;
+  margin-top: 10px;
+}
+
+.title-modal {
+  margin-left: 45%;
+}
+
+.buttons-order {
+  margin: 0px auto;
+  width: 900px;
+  margin-bottom: 20px;
 }
