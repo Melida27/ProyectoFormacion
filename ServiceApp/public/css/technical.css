@@ -256,6 +256,7 @@ height: 100%;
   background-color: #004C51;
   padding: 10px;
   color: white;
+  font-size: 17px;
 }
 
 .cardInfoService {
@@ -287,7 +288,8 @@ height: 100%;
 .buttons-order {
   margin: 0px auto;
   width: 900px;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 25px;
 }
 
 .cards-studies{
@@ -300,4 +302,40 @@ height: 100%;
   width: 400px;
   height: 200px;
   vertical-align: top;
+}
+
+span{
+  font-size: 13px;
+}
+
+p {
+  font-size: 13px;
+}
+
+strong {
+  font-size: 15px;
+}
+
+.final-order {
+  float: right;
+}
+
+.btn-modal {
+  font-size: 15px;
+}
+
+.card-style {
+  width: 200px;
+  height: 150px;
+  overflow: scroll;
+  margin: 5px;
+}
+
+.cards-notes {
+  width: 860px;
+  margin: 0px auto;
+}
+
+.title-notes{
+  display: block;
 }
