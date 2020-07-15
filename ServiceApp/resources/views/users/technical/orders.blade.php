@@ -85,35 +85,21 @@
             </div>
 
             <div class="cards-notes">
-              <button class="btn btn-success btn-modal">Nueva Nota</button>
+              <button class="btn btn-success btn-modal" id="btn_new_note">Crear Nota</button>
               <br>
               <br>
-              <form>
+              <form id="form-note">
+                @csrf
+
                 <div class="form-group">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea class="form-control" id="note_order" name="note" rows="3"></textarea>
                 </div>
+                <input type="hidden" id="order-id" name="fk_order">
               </form>
               <span class="title-notes"><strong>Notas de la Orden</strong></span>
               <br>
-              <div class="card card-style">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-              <div class="card card-style">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-              <div class="card card-style">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-              <div class="card card-style">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
+              <div id="notes">
+                
               </div>
             </div>
 
