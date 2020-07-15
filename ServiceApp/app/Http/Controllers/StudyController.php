@@ -20,11 +20,12 @@ class StudyController extends Controller
      */
     public function index()
     {
-        $studies = DB::table('study')->select('study.type', 'study.title', 'study.end_date', 'study.description')
-                                    ->join('curriculum', 'study.fk_curriculum', '=', 'curriculum.id')
-                                    ->join('users', 'curriculum.fk_user', '=', 'users.id')
-                                    ->where('users.id', '=', Auth::user()->id)
-                                    ->get();
+        $studies = DB::table('study')
+                        ->select('study.institution','study.type', 'study.title', 'study.end_date', 'study.description')
+                        ->join('curriculum', 'study.fk_curriculum', '=', 'curriculum.id')
+                        ->join('users', 'curriculum.fk_user', '=', 'users.id')
+                        ->where('users.id', '=', Auth::user()->id)
+                        ->get();
 
         //dd($studies);
         return view('studies.index')->with('studies', $studies);

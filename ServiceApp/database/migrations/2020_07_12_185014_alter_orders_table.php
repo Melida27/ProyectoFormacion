@@ -16,7 +16,7 @@ class AlterOrdersTable extends Migration
         Schema::table('orders', function (Blueprint $table){
             $table->bigInteger('fk_technical')->unsigned()->after('fk_user');
             $table->foreign('fk_technical')->references('id')->on('users');
-            
+            $table->string('description')->after('fk_address');
         });
     }
 
@@ -28,7 +28,7 @@ class AlterOrdersTable extends Migration
     public function down()
     {
         Schema::table('orders', function (Blueprint $table){
-            $table->dropColumn(['fk_technical']);
+            $table->dropColumn(['fk_technical', 'description']);
         });
     }
 }

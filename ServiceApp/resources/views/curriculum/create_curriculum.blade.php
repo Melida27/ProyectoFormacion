@@ -111,17 +111,22 @@
 					<br>
 
 					<div class="form-row">
-						<div class="form-group col-md-4">
+						<div class="form-group col-md-3">
+							<label for="institution">Institución</label>
+							<input type="text" name="institution" class="form-control" id="institution">
+						</div>
+
+						<div class="form-group col-md-3">
 							<label for="type">Tipo de Estudio</label>
 							<input type="text" name="type" class="form-control" id="type">
 						</div>
 
-						<div class="form-group col-md-4">
+						<div class="form-group col-md-3">
 							<label for="title">Título Obtenido</label>
 							<input type="text" name="title" class="form-control" id="title">
 						</div>
 
-						<div class="form-group col-md-4">
+						<div class="form-group col-md-3">
 							<label for="end_date">Fecha Finalización</label>
 							<input type="date" name="end_date" class="form-control" id="end_date">
 						</div>

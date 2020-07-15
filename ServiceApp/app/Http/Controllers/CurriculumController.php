@@ -80,6 +80,7 @@ class CurriculumController extends Controller
 
         try {
             $study = new Study;
+            $study->institution = $request->institution;
             $study->type = $request->type;
             $study->title = $request->title;
             $study->end_date = $request->end_date;

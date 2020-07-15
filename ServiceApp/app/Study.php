@@ -9,6 +9,7 @@ class Study extends Model
     protected $table = 'study';
 
     protected $fillable = [
+    	'institution',
         'type',
         'title',
         'end_date',
