@@ -2,6 +2,7 @@
   <link href="{{ asset('css/fontawesome-all.min.css') }}" rel="stylesheet">
 
   <link href="{{ asset('css/technical.css') }}" rel="stylesheet">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <body>
     <div class="area">
       <div class="area-orders">
@@ -48,6 +49,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="{{ asset('js/orders.js')}}"></script>
+    <script src="{{ asset('js/sweetalert2@9.js') }}"></script>
 
     <div class="modal fade" id="modalInfoOrders" tabindex="-1" role="dialog" aria-labelledby="modalInfoOrders" aria-hidden="true">
       <div class="modal-dialog modal-xl">
@@ -84,7 +86,7 @@
               <p id="p-order-description" class="order-description"></p>
             </div>
 
-            <div class="cards-notes">
+            <div class="cards-notes" id="notes-card">
               <button class="btn btn-success btn-modal" id="btn_new_note">Crear Nota</button>
               <br>
               <br>
@@ -99,14 +101,25 @@
               <span class="title-notes"><strong>Notas de la Orden</strong></span>
               <br>
               <div id="notes">
-                
+
               </div>
             </div>
 
             <div class="buttons-order">
-              <button class="btn btn-success btn-modal">Aceptar Orden</button>
-              <button class="btn btn-danger btn-modal">Rechazar Orden</button>
-              <button class="btn btn-info final-order btn-modal">Finalizar Orden</button>
+               <button class="btn btn-success btn-modal" id="btn-aceptar-order">Aceptar Orden</button>
+               <button class="btn btn-danger btn-modal" id="btn-rechazar-order">Rechazar Orden</button>
+               <button class="btn btn-danger final-order btn-modal" id="btn-final-order">Finalizar Orden</button>
+              
+            </div>
+
+            <div id="calendar">
+                 <div class="form-group col-md-6">
+                    <label for="end_date">Fecha Disponible</label>
+                    <input type="date" name="date_service" class="form-control" id="date-service">
+                    <br>
+                    <button class="btn btn-info" id="guardar-aceptada">Confirmar</button>
+                </div>
+                
             </div>
 
 
@@ -156,3 +169,4 @@
       </div>
     </div>
   </div>
+

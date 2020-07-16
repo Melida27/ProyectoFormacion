@@ -87,6 +87,19 @@ class OrderController extends Controller
         //
     }
 
+    public function updateStatusOrder(Request $request, $id){
+        $order = Order::find($id);
+        $order->status_order = $request->value;
+        $order->save();
+    }
+
+    public function updateDateServiceOrder(Request $request, $id){
+        $order = Order::find($id);
+        $order->status_order = $request->value;
+        $order->date_service = $request->date;
+        $order->save();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

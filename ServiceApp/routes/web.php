@@ -32,6 +32,10 @@ Route::resource('studies', 'StudyController');
 Route::resource('notes', 'NoteController');
 Route::resource('experiences', 'ExperienceController');
 
+
+Route::put('orders-status/{id}', 'OrderController@updateStatusOrder');
+Route::put('date-service/{id}', 'OrderController@updateDateServiceOrder');
+
 Route::put('users/desactivar/{id}', 'UserController@desactivar');
 Route::get('get-address/{id}', 'AddressController@getAddress');
 Route::post('address-account', 'AddressController@addressAccount');
