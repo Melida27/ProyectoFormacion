@@ -21,7 +21,7 @@ class ExperienceController extends Controller
     public function index()
     {
         $experiences = DB::table('working_experience')
-                        ->select('working_experience.company_name', 'working_experience.position', 'working_experience.time_experience_company', 'working_experience.description', 'working_experience.fk_curriculum')
+                        ->select('working_experience.id', 'working_experience.company_name', 'working_experience.position', 'working_experience.time_experience_company', 'working_experience.description', 'working_experience.fk_curriculum')
                         ->join('curriculum', 'working_experience.fk_curriculum', '=', 'curriculum.id')
                         ->join('users', 'curriculum.fk_user', '=', 'users.id')
                         ->where('users.id', '=', Auth::user()->id)
@@ -101,6 +101,10 @@ class ExperienceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $experience = Experience::find($id);
+
+        if($experience->delete()){
+            return redirect('/experiences')->with('message', 'La experiencia fué eliminada con éxito!');
+        }
     }
 }

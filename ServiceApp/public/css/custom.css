@@ -373,3 +373,15 @@ svg rect{
 	background-color: #fff !important;
 	color: #000;
 }
+
+#btn-categories{
+	background-color: #00796b;
+	color: #fff;
+	margin-left: 208px;
+}
+
+#btn-categories:hover{
+	background-color: #014f49;
+	color: #fff;
+	cursor: pointer;
+}

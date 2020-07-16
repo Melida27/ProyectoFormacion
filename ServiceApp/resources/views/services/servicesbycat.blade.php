@@ -9,6 +9,8 @@
 <body>
   <h1 class="text-center">Nuestros servicios</h1>
 
+  <a class="btn mt-3" href="{{ url('/allCategories') }}" role="button" id="btn-categories"><i class="fa fa-arrow-left"></i>  Categorías</a>
+
   <div class="cards2">
       @if(count($services) > 0)
         @foreach ($services as $service)

@@ -24,9 +24,10 @@ $(document).ready(function() {
                     text: `Estudio Creado Exitosamente`,
                     icon: 'success',
                     confirmButtonColor: '#00796b',   
+                })
+                .then(()=>{
+                    location.reload();
                 });
-
-                location.reload();
             },
             error: function(error) {
                 console.log(error);
@@ -40,4 +41,25 @@ $(document).ready(function() {
             }   
         });
 	}
+
+    /* ----------------------------------------------------------------------------- */
+
+    $('.btn-delete').click(function(event){
+        Swal.fire({
+            title: 'Está usted seguro?',
+            text: "Desea eliminar este registro?",
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonColor: '#00796b',
+            cancelButtonColor: '#c20031',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.value) {
+                $(this).parent().submit();
+            }
+        });
+    });
+
+    /* ----------------------------------------------------------------------------- */
 });

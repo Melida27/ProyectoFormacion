@@ -13,3 +13,19 @@
 .btn-add-study{
 	margin-left: 255px;
 }
+
+.btn-custom-danger {
+	background-color: #E80B0B;
+	color: #fff;
+	width: 30px;
+	margin-left: 325px;
+	vertical-align: top;
+	margin-top: 0px;
+	position: fixed;
+}
+
+.btn-custom-danger:hover {
+	background-color: #A60909;
+	color: #fff;
+	transform: scale(1.05);
+}

@@ -20,6 +20,14 @@
             @foreach ($studies as $study)
                 <div class="card mr-4 mt-3 mb-4">
                     <div class="card-body">
+                        <form action="{{ url('studies/'.$study->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="button" class="btn btn-sm btn-custom-danger btn-delete">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+
                         <input type="hidden" name="id" id="id_curriculum" class="form-control" value="{{ $study->fk_curriculum }}">
                         <h5 class="card-title">{{ $study->title }}</h5>
                         <span class="badge badge-info">{{ $study->type }}</span>
@@ -98,5 +106,34 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="{{ asset('js/studies.js') }}"></script>
     <script src="{{ asset('js/sweetalert2@9.js') }}"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            /* ----------------------------------------------------------------------------- */
+            
+            @if(session('message'))
+                Swal.fire({
+                    title: 'Felicitaciones',
+                    text: '{{ session('message') }}',
+                    icon: 'success',
+                    confirmButtonColor: '#00796b',
+                });
+            @endif
+
+            /* ----------------------------------------------------------------------------- */
+
+            @if(session('error'))
+                Swal.fire({
+                    title: 'Error',
+                    text: '{{ session('error') }}',
+                    icon: 'error',
+                    confirmButtonColor: '#00796b',
+                });
+            @endif
+
+            /* ----------------------------------------------------------------------------- */
+        });
+    </script>
 </body>
 </html>
