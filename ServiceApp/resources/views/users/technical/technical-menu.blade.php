@@ -11,10 +11,10 @@
             </li>
 
             <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-laptop fa-2x"></i>
+                <a href="{{ url('experiences') }}">
+                    <i class="fa fa-folder fa-2x"></i>
                     <span class="nav-text">
-                        Stars Components
+                        Mis Experiencias
                     </span>
                 </a>
             </li>

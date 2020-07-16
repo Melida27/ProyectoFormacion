@@ -292,18 +292,6 @@ height: 100%;
   margin-bottom: 25px;
 }
 
-.cards-studies{
-  width: 860px;
-  margin: 0px auto;
-}
-
-.card{
-  display: inline-block;
-  width: 400px;
-  height: 200px;
-  vertical-align: top;
-}
-
 span{
   font-size: 13px;
 }

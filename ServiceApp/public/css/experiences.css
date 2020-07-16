@@ -1,0 +1,15 @@
+.cards-experiences{
+  width: 860px;
+  margin: 0px auto;
+}
+
+.card{
+  display: inline-block;
+  width: 400px;
+  height: 200px;
+  vertical-align: top;
+}
+
+.btn-add-experience{
+	margin-left: 255px;
+}

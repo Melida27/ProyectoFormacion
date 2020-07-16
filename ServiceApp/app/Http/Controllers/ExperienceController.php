@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use App\Study;
+use App\Experience;
 use App\Curriculum;
 use App\User;
 
 use Auth;
 
-class StudyController extends Controller
+class ExperienceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,15 +20,15 @@ class StudyController extends Controller
      */
     public function index()
     {
-        $studies = DB::table('study')
-                        ->select('study.institution','study.type', 'study.title', 'study.end_date', 'study.description', 'study.fk_curriculum')
-                        ->join('curriculum', 'study.fk_curriculum', '=', 'curriculum.id')
+        $experiences = DB::table('working_experience')
+                        ->select('working_experience.company_name', 'working_experience.position', 'working_experience.time_experience_company', 'working_experience.description', 'working_experience.fk_curriculum')
+                        ->join('curriculum', 'working_experience.fk_curriculum', '=', 'curriculum.id')
                         ->join('users', 'curriculum.fk_user', '=', 'users.id')
                         ->where('users.id', '=', Auth::user()->id)
                         ->paginate(4);
 
-        //dd($studies);
-        return view('studies.index')->with('studies', $studies);
+        //dd($experiences);
+        return view('experiences.index')->with('experiences', $experiences);
     }
 
     /**
@@ -49,15 +49,14 @@ class StudyController extends Controller
      */
     public function store(Request $request)
     {
-        $study = new Study;
-        $study->fk_curriculum = $request->fk_curriculum;
-        $study->institution = $request->institution;
-        $study->type = $request->type;
-        $study->title = $request->title;
-        $study->end_date = $request->end_date;
-        $study->description = $request->description;
-        
-        $study->save();
+        $experience = new Experience;
+        $experience->company_name = $request->company_name;
+        $experience->position = $request->position;
+        $experience->time_experience_company = $request->time_experience_company;
+        $experience->description = $request->description;
+        $experience->fk_curriculum = $request->fk_curriculum;
+
+        $experience->save();
     }
 
     /**
