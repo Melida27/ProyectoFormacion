@@ -11,15 +11,6 @@
             </li>
 
             <li class="has-subnav">
-                <a href="{{ url('experiences') }}">
-                    <i class="fa fa-folder fa-2x"></i>
-                    <span class="nav-text">
-                        Mis Experiencias
-                    </span>
-                </a>
-            </li>
-
-            <li class="has-subnav">
                 <a href="{{ url('studies') }}">
                     <i class="fa fa-list fa-2x"></i>
                     <span class="nav-text">
@@ -29,28 +20,10 @@
             </li>
 
             <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-folder-open fa-2x"></i>
+                <a href="{{ url('experiences') }}">
+                    <i class="fa fa-folder fa-2x"></i>
                     <span class="nav-text">
-                        Pages
-                    </span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    <i class="fa fa-bar-chart-o fa-2x"></i>
-                    <span class="nav-text">
-                        Graphs and Statistics
-                    </span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    <i class="fa fa-font fa-2x"></i>
-                    <span class="nav-text">
-                        Quotes
+                        Mis Experiencias
                     </span>
                 </a>
             </li>
@@ -60,24 +33,6 @@
                     <i class="fa fa-table fa-2x"></i>
                     <span class="nav-text">
                         Mis Ordenes
-                    </span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    <i class="fa fa-map-marker fa-2x"></i>
-                    <span class="nav-text">
-                        Maps
-                    </span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    <i class="fa fa-info fa-2x"></i>
-                    <span class="nav-text">
-                        Documentation
                     </span>
                 </a>
             </li>

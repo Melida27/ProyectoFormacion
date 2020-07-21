@@ -1,3 +1,19 @@
+.area{
+	background: url('/imgs/bg-curriculum.jpg') no-repeat !important;
+	background-size: cover !important;
+}
+
+.bg-experiences{
+   	background-color: rgba(0,0,0,0.8);
+   	height: 100%;
+}
+
+h1{
+	color: #fff !important;
+	margin-bottom: 30px;
+  	padding-top: 30px;
+}
+
 .cards-experiences{
   width: 860px;
   margin: 0px auto;

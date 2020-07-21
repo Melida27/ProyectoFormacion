@@ -10,33 +10,35 @@
 </head>
 <body>
     <div class="area">
-        <h1 class="text-center mt-4"><i class="fas fa-user-graduate"></i> Mis Estudios</h1>
+        <div class="bg-studies">
+            <h1 class="text-center"><i class="fas fa-user-graduate"></i> Mis Estudios</h1>
 
-        <div class="btn-add-study mt-3">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalStudy"><i class="fas fa-plus"></i> Adicionar Estudio</button>
-        </div>
+            <div class="btn-add-study mt-3">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalStudy"><i class="fas fa-plus"></i> Adicionar Estudio</button>
+            </div>
 
-        <div class="cards-studies">
-            @foreach ($studies as $study)
-                <div class="card mr-4 mt-3 mb-4">
-                    <div class="card-body">
-                        <form action="{{ url('studies/'.$study->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <button type="button" class="btn btn-sm btn-custom-danger btn-delete">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
+            <div class="cards-studies">
+                @foreach ($studies as $study)
+                    <div class="card mr-4 mt-3 mb-4">
+                        <div class="card-body">
+                            <form action="{{ url('studies/'.$study->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="button" class="btn btn-sm btn-custom-danger btn-delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
 
-                        <input type="hidden" name="id" id="id_curriculum" class="form-control" value="{{ $study->fk_curriculum }}">
-                        <h5 class="card-title">{{ $study->title }}</h5>
-                        <span class="badge badge-info">{{ $study->type }}</span>
-                        <span class="badge badge-secondary">{{ $study->institution }}</span>
-                        <hr>
-                        <p class="card-text">{{ $study->description }}</p>
+                            <input type="hidden" name="id" id="id_curriculum" class="form-control" value="{{ $study->fk_curriculum }}">
+                            <h5 class="card-title">{{ $study->title }}</h5>
+                            <span class="badge badge-info">{{ $study->type }}</span>
+                            <span class="badge badge-secondary">{{ $study->institution }}</span>
+                            <hr>
+                            <p class="card-text">{{ $study->description }}</p>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
 
         {{ $studies->links() }}

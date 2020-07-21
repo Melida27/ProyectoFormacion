@@ -10,33 +10,35 @@
 </head>
 <body>
     <div class="area">
-        <h1 class="text-center mt-4"><i class="fas fa-briefcase"></i> Mis Experiencias</h1>
+        <div class="bg-experiences">
+            <h1 class="text-center"><i class="fas fa-briefcase"></i> Mis Experiencias</h1>
 
-        <div class="btn-add-experience mt-3">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalExperience"><i class="fas fa-plus"></i> Adicionar Experiencia</button>
-        </div>
+            <div class="btn-add-experience mt-3">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalExperience"><i class="fas fa-plus"></i> Adicionar Experiencia</button>
+            </div>
 
-        <div class="cards-experiences">
-            @foreach ($experiences as $experiency)
-                <div class="card mr-4 mt-3 mb-4">
-                    <div class="card-body">
-                        <form action="{{ url('experiences/'.$experiency->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <button type="button" class="btn btn-sm btn-custom-danger btn-delete">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
+            <div class="cards-experiences">
+                @foreach ($experiences as $experiency)
+                    <div class="card mr-4 mt-3 mb-4">
+                        <div class="card-body">
+                            <form action="{{ url('experiences/'.$experiency->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="button" class="btn btn-sm btn-custom-danger btn-delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
 
-                        <input type="hidden" name="id" id="id_curriculum" class="form-control" value="{{ $experiency->fk_curriculum }}">
-                        <h5 class="card-title">{{ $experiency->position }}</h5>
-                        <span class="badge badge-info">{{ $experiency->company_name }}</span>
-                        <span class="badge badge-secondary">{{ $experiency->time_experience_company }}</span>
-                        <hr>
-                        <p class="card-text">{{ $experiency->description }}</p>
+                            <input type="hidden" name="id" id="id_curriculum" class="form-control" value="{{ $experiency->fk_curriculum }}">
+                            <h5 class="card-title">{{ $experiency->position }}</h5>
+                            <span class="badge badge-info">{{ $experiency->company_name }}</span>
+                            <span class="badge badge-secondary">{{ $experiency->time_experience_company }}</span>
+                            <hr>
+                            <p class="card-text">{{ $experiency->description }}</p>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
 
         {{ $experiences->links() }}

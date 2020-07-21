@@ -8,7 +8,7 @@
       <div class="area-orders">
         <div class="area-orders2">
 
-          <h1 class="text-center title-orders"> Lista de Ordenes</h1>
+          <h1 class="text-center title-orders"><i class="fas fa-list"></i> Lista de Ordenes</h1>
 
           @foreach ($orders as $order)
           @if($order->status_order == 'Pendiente')
