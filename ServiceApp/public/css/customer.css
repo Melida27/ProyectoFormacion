@@ -1,0 +1,11 @@
+.img{
+	border: 1px solid red;
+	background-color: #fff;
+	width: 	800px;
+	margin: 0px auto;
+}
+
+body{
+	background: url('/imgs/bg-all-categories.jpg') no-repeat;
+	background-size: cover;
+}

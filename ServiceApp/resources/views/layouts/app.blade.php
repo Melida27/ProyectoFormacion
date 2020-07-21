@@ -90,14 +90,18 @@
                                             <i class="fa fa-business-time"></i> 
                                             Módulo Pedidos
                                         </a>
-                                    @elseif (Auth::user()->role == "Customer")
-                                        <a class="dropdown-item" href="{{ url('account') }}">
+                                    @elseif (Auth::user()->role == "Cliente")
+                                        <a class="dropdown-item" href="#">
                                             <i class="fa fa-user"></i> 
                                             Mi perfil
                                         </a>
-                                        <a class="dropdown-item" href="{{ url('orders') }}">
+                                        <a class="dropdown-item" href="#">
                                             <i class="fa fa-business-time"></i> 
                                             Mis Pedidos
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('/allCategories') }}">
+                                            <i class="fa fa-list"></i> 
+                                            Catalogo
                                         </a>
                                     @endif
 
