@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\ServiceUser;
 use App\Service;
 use App\User;
+use App\Curriculum;
+use Auth;
 
 class ServiceUserController extends Controller
 {
@@ -16,6 +18,12 @@ class ServiceUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
@@ -95,15 +103,27 @@ class ServiceUserController extends Controller
 
     public function technicalsbyservice($id){
         $technicals = DB::table('user_service')
-        ->select('users.id', 'users.first_name', 'users.first_lastname')
+        ->select('users.id', 'users.first_name', 'users.first_lastname','users.photo','users.phone','users.email','curriculum.id as id_curriculum')
         ->join('users', 'user_service.fk_user', '=', 'users.id')
+        ->join('curriculum', 'curriculum.fk_user', '=', 'users.id')
         ->where('user_service.fk_service', '=', $id)
         ->get();
 
-        //dd($technicals);
-
         return view('users.technical.technicalsbyservice')->with('technicals', $technicals);
-        //return redirect('/home');
-        //return $technicals;
+    }
+
+    public function infoCompletedTechnical($id){
+
+        $curriculum = Curriculum::find($id); 
+        $userInfo = User::find($curriculum->fk_user); 
+        $studies =  DB::table('study')->where('fk_curriculum', '=', $id)->get();
+        $experiences =  DB::table('working_experience')->where('fk_curriculum', '=', $id)->get();
+        $curriculumArray = array('technical_info'=>$userInfo); 
+        $userInfoArray = array('curriculum'=>$curriculum); 
+        $studiesArray = array('studies'=>$studies); 
+        $experiencesArray = array('experiences'=>$experiences); 
+        $technical = $userInfoArray + $curriculumArray + $studiesArray + $experiencesArray;
+
+        return $technical;
     }
 }

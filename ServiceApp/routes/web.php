@@ -44,6 +44,7 @@ Route::post('edit-user-address', 'AddressController@editUserAddress');
 Route::post('users/search', 'UserController@search');
 
 Route::get('account', 'UserController@myAccount');
+Route::get('technical-info/{id}', 'ServiceUserController@infoCompletedTechnical');
 
 Route::put('account-update/{id}', 'UserController@updateAccount');
 Route::put('update-photo', 'UserController@updatePhoto');
