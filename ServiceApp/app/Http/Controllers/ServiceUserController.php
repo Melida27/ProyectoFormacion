@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\ServiceUser;
 use App\Service;
+use App\User;
 
 class ServiceUserController extends Controller
 {
@@ -89,5 +91,19 @@ class ServiceUserController extends Controller
     public function allservices(){
         $services = Service::all();
         return $services;
+    }
+
+    public function technicalsbyservice($id){
+        $technicals = DB::table('user_service')
+        ->select('users.id', 'users.first_name', 'users.first_lastname')
+        ->join('users', 'user_service.fk_user', '=', 'users.id')
+        ->where('user_service.fk_service', '=', $id)
+        ->get();
+
+        //dd($technicals);
+
+        return view('users.technical.technicalsbyservice')->with('technicals', $technicals);
+        //return redirect('/home');
+        //return $technicals;
     }
 }

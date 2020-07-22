@@ -55,6 +55,7 @@ Route::get('generate/pdf/users', 'UserController@pdf');
 
 Route::get('/allCategories', 'HomeController@allCategories');
 Route::get('/servicesbycategory/{id}', 'HomeController@servicesbycat');
+Route::get('/technicalsbyservice/{id}', 'ServiceUserController@technicalsbyservice');
 
 Route::get('/allservices', 'ServiceUserController@allservices');
 

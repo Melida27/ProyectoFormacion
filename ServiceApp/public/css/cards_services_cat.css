@@ -222,3 +222,13 @@ div.card2.show div.flap2 {
   -webkit-transition: all 0.3s 0.2s ease-out;
   transition: all 0.3s 0.2s ease-out;
 }
+
+.card-master{
+  display: inline-block;
+  width: 310px;
+}
+
+.btn-master{
+  width: 95%;
+  margin: 0px auto;
+}
