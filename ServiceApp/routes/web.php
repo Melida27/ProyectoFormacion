@@ -34,6 +34,8 @@ Route::resource('experiences', 'ExperienceController');
 
 
 Route::put('orders-status/{id}', 'OrderController@updateStatusOrder');
+Route::put('change-status', 'OrderController@updateStatusOrderRedirect');
+
 Route::put('date-service/{id}', 'OrderController@updateDateServiceOrder');
 
 Route::put('users/desactivar/{id}', 'UserController@desactivar');

@@ -23,7 +23,7 @@
             <button type="button" class="btn btn-green btn-more btn-admin-order" data-id="{{$order->id}}" data-toggle="modal" data-target="#modalInfoOrders">Administrar Orden</button>
             <h3 class="date-order">Estado:  {{$order->status_order}}</h3>
           </div>
-          @elseif($order->status_order == 'Rechazado')
+          @elseif($order->status_order == 'Rechazado' || $order->status_order == 'Cancelado')
           <div class="card-order bkg_red">
             <h3 class="date-order">Fecha Creacion:  {{$order->date_order}}</h3>
             <button type="button" class="btn btn-red btn-more btn-admin-order" data-id="{{$order->id}}" data-toggle="modal" data-target="#modalInfoOrders">Administrar Orden</button>

@@ -71,7 +71,7 @@ $(document).ready(function(){
              formNote.css({display: 'none'});
              btnAceptarOrder.css({display: 'none'});
              btnRechazarOrder.css({display: 'none'});
-         }else if(response[0].status_order == 'Rechazado'){
+         }else if(response[0].status_order == 'Rechazado' || response[0].status_order == 'Cancelado'){
              btnFinalOrder.css({display: 'none' });
              notesCard.css({display: 'none'});
              btnAceptarOrder.css({display: 'none'});
@@ -111,6 +111,7 @@ $(document).ready(function(){
     });
 
 	function insertNote(){
+    $('#note_order').val('Tecnico: ' + $('#note_order').val());
 		$('#order-id').val(orderId);
 		$.ajax({
             type: 'post',

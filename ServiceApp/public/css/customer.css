@@ -96,3 +96,138 @@ body {
 
 /*Codigo para las cards de ordenes cliente*/
 
+.card-order {
+	width: 400px;
+	display: inline-block !important;
+	margin: 10px;
+}
+
+.orders-container {
+	width: 860px;
+	margin: -24px auto;
+	background-color: rgba(0,0,0,0.5);
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+.title-orders{
+	color: white;
+	margin: 20px;
+}
+
+.pagination {
+	margin-top: 20px;
+}
+
+
+/* Codigo modal administrar ordenes */
+
+.cardInfoOrder {
+  margin: 0px auto;
+  width: 900px;
+  height: 100px;
+}
+
+.subCardInfo {
+  width: 23%;
+  margin: 5px;
+  display: inline-block;
+  text-align: left;
+}
+
+.subCardInfoUser2 {
+  width: 30%;
+  margin: 5px;
+  display: inline-block;
+  text-align: left;
+}
+
+.cardInfoUser {
+  margin: 0px auto;
+  width: 900px;
+  height: 140px;
+}
+
+
+.title-info {
+  background-color: #004C51;
+  padding: 10px;
+  color: white;
+  font-size: 17px;
+}
+
+.cardInfoService {
+  margin: 0px auto;
+  width: 900px;
+}
+
+.subCardInfoService {
+  width: 100%;
+  margin: 5px;
+  display: inline-block;
+  text-align: left;
+}
+
+.cardInfoOrderDescription {
+  margin: 0px auto;
+  width: 900px;
+}
+
+.order-description {
+  text-align: justify;
+  margin-top: 10px;
+}
+
+.title-modal {
+  margin-left: 45%;
+}
+
+.buttons-order {
+  margin: 0px auto;
+  width: 900px;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+span{
+  font-size: 13px;
+}
+
+p {
+  font-size: 13px;
+}
+
+strong {
+  font-size: 15px;
+}
+
+
+
+.btn-modal {
+  font-size: 15px;
+}
+
+.card-style {
+  width: 200px;
+  height: 150px;
+  overflow-y: scroll;
+  margin: 5px;
+  display: inline-block !important;
+}
+
+.cards-notes {
+  width: 860px;
+  margin: 0px auto;
+}
+
+.title-notes{
+  display: block;
+}
+
+#calendar {
+  margin: 0px auto;
+  width: 900px;
+  display: none;
+}
