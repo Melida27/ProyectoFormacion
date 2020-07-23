@@ -40,6 +40,9 @@ Route::put('users/desactivar/{id}', 'UserController@desactivar');
 Route::get('get-address/{id}', 'AddressController@getAddress');
 Route::post('address-account', 'AddressController@addressAccount');
 Route::post('edit-user-address', 'AddressController@editUserAddress');
+Route::post('store-address', 'AddressController@storeAddress');
+
+Route::get('orders-customer', 'OrderController@ordersCustomer');
 
 Route::post('users/search', 'UserController@search');
 

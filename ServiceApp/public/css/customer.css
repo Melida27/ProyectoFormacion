@@ -88,3 +88,11 @@ body {
 .container-info-experiences {
 	width: 100%;
 }
+
+.form_add_address {
+	display: none;
+}
+
+
+/*Codigo para las cards de ordenes cliente*/
+

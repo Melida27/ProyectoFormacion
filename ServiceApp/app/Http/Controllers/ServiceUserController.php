@@ -103,7 +103,7 @@ class ServiceUserController extends Controller
 
     public function technicalsbyservice($id){
         $technicals = DB::table('user_service')
-        ->select('users.id', 'users.first_name', 'users.first_lastname','users.photo','users.phone','users.email','curriculum.id as id_curriculum')
+        ->select('users.id', 'users.first_name', 'users.first_lastname','users.photo','users.phone','users.email','curriculum.id as id_curriculum', "user_service.fk_service as id_service")
         ->join('users', 'user_service.fk_user', '=', 'users.id')
         ->join('curriculum', 'curriculum.fk_user', '=', 'users.id')
         ->where('user_service.fk_service', '=', $id)

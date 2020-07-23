@@ -42,7 +42,7 @@ $(document).ready(function(){
          
 
          spnScore.text(response[0].score);
-         spnClienteNombre.text(response[0].client_first_name + ' ' + response[0].client_second_name + ' ' + response[0].client_first_lastname + ' ' + response[0].client_second_lastname);
+         spnClienteNombre.text(response[0].client_first_name + ' ' + response[0].client_first_lastname + ' ' + response[0].client_second_lastname);
          spnClienteCiudad.text(response[0].client_municipality);
          spnClienteDireccion.text(response[0].address);
          spnClienteBarrio.text(response[0].neighborhood);

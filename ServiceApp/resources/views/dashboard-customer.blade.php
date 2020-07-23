@@ -79,7 +79,7 @@
 							<i class="fa fa-user"></i> 
 							Mi perfil
 						</a>
-						<a class="dropdown-item" href="#">
+						<a class="dropdown-item" href="{{ url('/orders-customer') }}">
 							<i class="fa fa-business-time"></i> 
 							Mis Pedidos
 						</a>

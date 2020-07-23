@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	var btn_info = $('.btn-info-technical');
+  var btn_final_order = $('.btn-final-order');
 	var identification_technical = $('.identification_technical');
 	var name_technical = $('.name_technical');
 	var email_technical = $('.email_technical');
@@ -9,9 +10,52 @@ $(document).ready(function(){
 	var experience_technical = $('.experience_technical');
 	var tbody_studies = $('.tbody_studies');
 	var tbody_experiences = $('.tbody_experiences');
+  var container_addresses = $('.container_addresses');
+  var form_add_address = $('.form_add_address');
+  var btn_new_address = $('.btn_new_address');
+  var btn_cancel_address = $('#btn-cancel-address');
+  var btn_add_address = $('#btn-add-address');
+  var data_id_customer = '';
+  var data_id_tech = '';
+  var data_id_service = '';
+  var btn_save_order = $('#btn-save-order');
+
+  var fk_technical = $('#fk_technical');
+  var fk_service = $('#fk_service');
+
+    btn_final_order.click(function(event) {
+      data_id_customer = $(this).attr('data-id');
+      data_id_tech = $(this).attr('id-tech');
+      data_id_service = $(this).attr('id-service');
+
+      fk_technical.val(data_id_tech);
+      fk_service.val(data_id_service);
+
+    	getAddress(data_id_customer);
+    });
 
     btn_info.click(function(event) {
-    	getInfoTechnical($(this).attr('data-id'));
+      getInfoTechnical($(this).attr('data-id'));
+    });
+
+    btn_new_address.click(function(event) {
+      form_add_address.css({
+        display: 'block'
+      });
+    });
+
+    btn_cancel_address.click(function(event) {
+      form_add_address.css({
+        display: 'none'
+      });
+    });
+
+    btn_add_address.click(function(event) {
+      insertAddress();
+    });
+
+    btn_save_order.click(function(event) {
+      insertOrder();
     });
 
 
@@ -19,7 +63,6 @@ $(document).ready(function(){
        $.get('/technical-info/'+idCurriculum, (response) => {
        	tbody_experiences.empty();
        	tbody_studies.empty();
-       	console.log(response);
        	   identification_technical.text(response.technical_info.identification_user);
            name_technical.text(response.technical_info.first_name + ' ' + response.technical_info.second_name + ' ' + response.technical_info.first_lastname + ' ' + response.technical_info.second_lastname);
            email_technical.text(response.technical_info.email);
@@ -75,5 +118,74 @@ $(document).ready(function(){
                tbody_experiences.append(row);
            }
        });
+    }
+
+
+    function getAddress(id) {
+      container_addresses.empty();
+      let option = document.createElement('option');
+      option.innerHTML = 'Seleccione...';
+      container_addresses.append(option);
+
+      $.get('/get-address/'+id, function(addresses){
+        console.log(addresses);
+
+         for (var i = 0; i < addresses.length; i++) {
+           let option = document.createElement('option');
+           option.setAttribute('value',addresses[i].id);
+           option.innerHTML = addresses[i].address + ' | ' + addresses[i].neighborhood + ' | ' + addresses[i].name_municipality;
+           
+           container_addresses.append(option);
+         }
+      });
+    }
+
+    function insertAddress(){
+          $.ajax({
+              type: 'post',
+              url: '/store-address',
+              data: $('#form-address').serialize(),
+              headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              success: function (id) {
+                  alert('Direccion agregada exitosamente');
+                  $('#form-address')[0].reset();
+                  getAddress(data_id_customer);
+                  form_add_address.css({
+                  display: 'none'
+                });
+
+              },
+              error: function(error) {
+                  alert('Error al crear la direccion');
+              }
+          });
+    }
+
+    function insertOrder(){
+      $.ajax({
+              type: 'post',
+              url: '/orders',
+              data: $('#form_orders').serialize(),
+              headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              success: function (response) {
+                  Swal.fire({
+                    title: 'Felicitaciones',
+                    text: 'Orden creada exitosamente',
+                    icon: 'success',
+                    confirmButtonColor: '#00796b' 
+                })
+                .then(()=>{
+                  window.location.href = '/orders-customer';
+                });
+
+              },
+              error: function(error) {
+                  console.log(error);
+              }
+          });
     }
 });

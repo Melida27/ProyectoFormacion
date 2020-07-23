@@ -65,6 +65,18 @@ class AddressController extends Controller
         }
     }
 
+    public function storeAddress(Request $request)
+    {
+        $address = new Address;
+        $address->address = $request->address;
+        $address->neighborhood = $request->neighborhood;
+        $address->fk_municipality = $request->fk_municipality;
+        $address->fk_user = $request->fk_user;
+
+        $address->save();
+
+    }
+
     public function addressAccount(Request $request)
     {
         $address = new Address;

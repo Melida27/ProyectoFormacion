@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Order;
 use Auth;
+use DateTime;
 
 class OrderController extends Controller
 {
@@ -17,8 +18,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('fk_technical','=',Auth::user()->id)->orderBy('date_order', 'ASC')->paginate(4);
+        $orders = Order::where('fk_technical','=',Auth::user()->id)->orderBy('date_order', 'DESC')->paginate(4);
         return view('users.technical.orders')->with('orders', $orders);
+    }
+
+    public function ordersCustomer() {
+        $orders = Order::where('fk_user','=',Auth::user()->id)->orderBy('date_order', 'DESC')->paginate(4);
+        return view('users.customer.orders-customer')->with('orders', $orders);
     }
 
     /**
@@ -39,7 +45,20 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $date = new DateTime('today');
+        $order = new Order;
+        $order->date_order = $date;
+        $order->date_service = null;
+        $order->status_order = 'Pendiente';
+        $order->fk_user = $request->fk_user;
+        $order->fk_technical = $request->fk_technical;
+        $order->fk_service = $request->fk_service;
+        $order->fk_address = $request->fk_address;
+        $order->description = $request->description;
+        $order->fk_score = '1';
+
+        $order->save();
+
     }
 
     /**
