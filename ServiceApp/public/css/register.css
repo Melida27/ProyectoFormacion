@@ -1,0 +1,120 @@
+/*LOGIN*/
+html { 
+  background: url('/imgs/bg-register.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
+img{
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+#register-button{
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30px;
+  margin: auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgb(0,0,0);
+  overflow: hidden;
+  opacity: 0.5;
+  box-shadow: 10px 10px 30px #000;
+}
+
+/* Login container */
+#container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 500px;
+  height: 600px;
+  border-radius: 5px;
+  background: rgba(3,3,3,.8);
+  box-shadow: 1px 1px 50px #000;
+  display: none;
+  color: #fff;
+}
+
+/* Inputs */
+input{
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-decoration: none;
+  position: relative;
+  width: 80%;
+  display: block;
+  margin: 9px auto;
+  font-size: 17px;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(3,3,3,.1);
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus{
+  outline: none;
+  box-shadow: 3px 3px 10px #333;
+  background: rgba(3,3,3,.18);
+}
+
+.btn-custom {
+	background-color: #06A18F;
+	color: #fff;
+}
+
+.btn-custom:hover {
+	background-color: #00796b;
+	cursor: pointer;
+	color: #fff;
+}
+
+.btn-login{
+  background-color: #075F6C;
+  color: #fff;
+  width: 130px;
+}
+
+.btn-login:hover{
+  background-color: #05424B;
+  color: #fff;
+  cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+
+a:hover {
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+}
+
+button {
+	width: 130px;
+}
+
+
+.scroll {
+  overflow-y: scroll;
+}
