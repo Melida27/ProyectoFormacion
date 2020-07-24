@@ -36,6 +36,15 @@
                     </span>
                 </a>
             </li>
+
+            <li>
+                <a href="{{url('account')}}">
+                    <i class="fa fa-user fa-2x"></i>
+                    <span class="nav-text">
+                        Mi Perfil
+                    </span>
+                </a>
+            </li>
         </ul>
 
         <ul class="logout">

@@ -22,6 +22,7 @@
 </head>
 <body>
     <div id="app">
+        @if(Auth::user()->role !== 'Tecnico')
         <nav class="navbar navbar-expand-md navbar-dark bg-custom shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -91,7 +92,7 @@
                                             Módulo Pedidos
                                         </a>
                                     @elseif (Auth::user()->role == "Cliente")
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{ url('account') }}">
                                             <i class="fa fa-user"></i> 
                                             Mi perfil
                                         </a>
@@ -124,6 +125,7 @@
                 </div>
             </div>
         </nav>
+        @endif
 
         <main class="py-4">
             @yield('content')

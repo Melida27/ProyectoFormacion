@@ -100,8 +100,8 @@ $(document).ready(function(){
     	.done(function() {
     		getAdresses(idUserUnique);
     	})
-    	.fail(function() {
-    		console.log("error");
+    	.fail(function(err) {
+    		alert("ERROR: La dirección esta relacionada con una orden");
     	})
     	.always(function() {
     		console.log("complete");

@@ -75,7 +75,7 @@
 							Módulo Pedidos
 						</a>
 						@elseif (Auth::user()->role == "Cliente")
-						<a class="dropdown-item" href="#">
+						<a class="dropdown-item" href="{{ url('account') }}">
 							<i class="fa fa-user"></i> 
 							Mi perfil
 						</a>
