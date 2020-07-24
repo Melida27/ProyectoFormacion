@@ -98,7 +98,7 @@ body {
 
 .card-order {
 	width: 400px;
-	display: inline-block !important;
+
 	margin: 10px;
 }
 
@@ -115,6 +115,7 @@ body {
 .title-orders{
 	color: white;
 	margin: 20px;
+	display: inline-block;
 }
 
 .pagination {
@@ -230,4 +231,9 @@ strong {
   margin: 0px auto;
   width: 900px;
   display: none;
+}
+
+.select-filter {
+  display: inline-block !important;
+  width: 300px !important;
 }

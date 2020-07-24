@@ -169,7 +169,10 @@ height: 100%;
 .title-orders {
   margin-bottom: 30px;
   color: white;
-  padding-top: 30px;
+  padding-top: 20px;
+  margin-left: 300px;
+  width: 400px;
+  display: inline-block;
 }
 
 .area-orders {
@@ -182,6 +185,7 @@ height: 100%;
 .area-orders2 {
   height: 100%;
    background-color: rgba(0,0,0,0.8);
+   overflow-y: scroll;
 }
 
 .date-order, 
@@ -331,4 +335,9 @@ strong {
   margin: 0px auto;
   width: 900px;
   display: none;
+}
+
+.select-filter {
+  display: inline-block;
+  width: 300px;
 }

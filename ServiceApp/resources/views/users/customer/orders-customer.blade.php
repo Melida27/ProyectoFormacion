@@ -5,10 +5,18 @@
 @section('content')
 
 <div class="orders-container">
-	<h1 class="text-center title-orders"><i class="fas fa-list"></i> Lista de Ordenes</h1>
+	<h1 class="title-orders"><i class="fas fa-list"></i> Lista de Ordenes</h1>
+  <select class="form-control select-filter" id="select_filter">
+    <option value="todas">Todas</option>
+    <option value="finalizado">Finalizado</option>
+    <option value="pendiente">Pendiente</option>
+    <option value="rechazado">Rechazado</option>
+    <option value="cancelado">Cancelado</option>
+    <option value="proceso">Proceso</option>
+  </select>
 	@foreach ($orders as $order)
 	@if($order->status_order == 'Pendiente')
-	<div class="card card-order">
+	<div class="card card-order card_pendiente">
         <div class="card-body">
             <h5>Orden - {{$order->id}}</h5>
             <span class="badge badge-warning">{{$order->status_order}}</span>
@@ -25,7 +33,7 @@
         </div>
     </div>
     @elseif($order->status_order == 'Proceso')
-	<div class="card card-order">
+	<div class="card card-order card_proceso">
         <div class="card-body">
             <h5>Orden - {{$order->id}}</h5>
             <span class="badge badge-info">{{$order->status_order}}</span>
@@ -35,7 +43,7 @@
         </div>
     </div>
     @elseif($order->status_order == 'Finalizado')
-	<div class="card card-order">
+	<div class="card card-order card_finalizado">
         <div class="card-body">
             <h5>Orden - {{$order->id}}</h5>
             <span class="badge badge-success">{{$order->status_order}}</span>
@@ -44,8 +52,18 @@
             <a href="" class="btn btn-dark btn-admin-order" data-id="{{$order->id}}" data-toggle="modal" data-target="#modalInfoOrders">Ver Mas</a>
         </div>
     </div>
-    @elseif($order->status_order == 'Rechazado' || $order->status_order == 'Cancelado')
-	<div class="card card-order">
+    @elseif($order->status_order == 'Rechazado')
+	<div class="card card-order card_rechazado">
+        <div class="card-body">
+            <h5>Orden - {{$order->id}}</h5>
+            <span class="badge badge-danger">{{$order->status_order}}</span>
+            <span class="badge badge-secondary">Fecha Creacion: {{$order->date_order}}</span>
+            <hr>
+            <a href="" class="btn btn-dark btn-admin-order" data-id="{{$order->id}}" data-toggle="modal" data-target="#modalInfoOrders">Ver Mas</a>
+        </div>
+    </div>
+    @elseif($order->status_order == 'Cancelado')
+  <div class="card card-order card_cancelado">
         <div class="card-body">
             <h5>Orden - {{$order->id}}</h5>
             <span class="badge badge-danger">{{$order->status_order}}</span>
@@ -56,7 +74,6 @@
     </div>
     @endif
 	@endforeach
-		{{ $orders->links() }}
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

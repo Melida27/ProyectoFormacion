@@ -18,6 +18,7 @@ $(document).ready(function(){
   var notesCard = $('#notes-card');
   var btnNewNote = $('#btn_new_note');
   var formNote = $('#form-note');
+  var selectFilter = $('#select_filter');
 
 
 	var orderId = '';
@@ -200,4 +201,43 @@ $(document).ready(function(){
         });
   }
 
+
+
+  selectFilter.change(function(event) {
+    
+    if($(this).val() == 'finalizado'){
+      $('.bkg_yellow').css({display: 'none'});
+      $('.bkg_red').css({display: 'none'});
+      $('.bkg_blue').css({display: 'none'});
+      $('.bkg_green').css({display: 'block'});
+    }else if($(this).val() == 'pendiente'){
+      $('.bkg_yellow').css({display: 'block'});
+      $('.bkg_red').css({display: 'none'});
+      $('.bkg_blue').css({display: 'none'});
+      $('.bkg_green').css({display: 'none'});
+    }else if($(this).val() == 'rechazado'){
+      $('.bkg_yellow').css({display: 'none'});
+      $('.bkg_cancel').css({display: 'none'});
+      $('.bkg_blue').css({display: 'none'});
+      $('.bkg_green').css({display: 'none'});
+      $('.bkg_rech').css({display: 'block'});
+    }else if($(this).val() == 'proceso'){
+      $('.bkg_yellow').css({display: 'none'});
+      $('.bkg_red').css({display: 'none'});
+      $('.bkg_blue').css({display: 'block'});
+      $('.bkg_green').css({display: 'none'});
+    }else if($(this).val() == 'todas'){
+      $('.bkg_yellow').css({display: 'block'});
+      $('.bkg_red').css({display: 'block'});
+      $('.bkg_blue').css({display: 'block'});
+      $('.bkg_green').css({display: 'block'});
+    }else if($(this).val() == 'cancelado'){
+      $('.bkg_yellow').css({display: 'none'});
+      $('.bkg_rech').css({display: 'none'});
+      $('.bkg_blue').css({display: 'none'});
+      $('.bkg_green').css({display: 'none'});
+      $('.bkg_cancel').css({display: 'block'});
+    }
+
+  });
 });

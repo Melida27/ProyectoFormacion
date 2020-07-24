@@ -19,6 +19,7 @@ $(document).ready(function(){
   var data_id_tech = '';
   var data_id_service = '';
   var btn_save_order = $('#btn-save-order');
+   var selectFilter = $('#select_filter');
 
   var spnOrderCreate = $('#spn-order-create');
   var spnStatusOrder = $('#spn-status-order');
@@ -43,6 +44,12 @@ $(document).ready(function(){
 
   var fk_technical = $('#fk_technical');
   var fk_service = $('#fk_service');
+
+         $('.card_pendiente').css({display: 'inline-block'});
+      $('.card_rechazado').css({display: 'inline-block'});
+      $('.card_cancelado').css({display: 'inline-block'});
+      $('.card_proceso').css({display: 'inline-block'});
+      $('.card_finalizado').css({display: 'inline-block'});
 
     btn_final_order.click(function(event) {
       data_id_customer = $(this).attr('data-id');
@@ -387,4 +394,46 @@ $(document).ready(function(){
             }
         });
   }
+
+
+    selectFilter.change(function(event) {
+    if($(this).val() == 'finalizado'){
+      $('.card_pendiente').css({display: 'none'});
+      $('.card_rechazado').css({display: 'none'});
+      $('.card_cancelado').css({display: 'none'});
+      $('.card_proceso').css({display: 'none'});
+      $('.card_finalizado').css({display: 'inline-block'});
+    }else if($(this).val() == 'pendiente'){
+       $('.card_pendiente').css({display: 'inline-block'});
+      $('.card_rechazado').css({display: 'none'});
+      $('.card_cancelado').css({display: 'none'});
+      $('.card_proceso').css({display: 'none'});
+      $('.card_finalizado').css({display: 'none'});
+    }else if($(this).val() == 'rechazado'){
+       $('.card_pendiente').css({display: 'none'});
+      $('.card_rechazado').css({display: 'inline-block'});
+      $('.card_cancelado').css({display: 'none'});
+      $('.card_proceso').css({display: 'none'});
+      $('.card_finalizado').css({display: 'none'});
+    }else if($(this).val() == 'proceso'){
+      $('.card_pendiente').css({display: 'none'});
+      $('.card_rechazado').css({display: 'none'});
+      $('.card_cancelado').css({display: 'none'});
+      $('.card_proceso').css({display: 'inline-block'});
+      $('.card_finalizado').css({display: 'none'});
+    }else if($(this).val() == 'todas'){
+       $('.card_pendiente').css({display: 'inline-block'});
+      $('.card_rechazado').css({display: 'inline-block'});
+      $('.card_cancelado').css({display: 'inline-block'});
+      $('.card_proceso').css({display: 'inline-block'});
+      $('.card_finalizado').css({display: 'inline-block'});
+    }else if($(this).val() == 'cancelado'){
+       $('.card_pendiente').css({display: 'none'});
+      $('.card_rechazado').css({display: 'none'});
+      $('.card_cancelado').css({display: 'inline-block'});
+      $('.card_proceso').css({display: 'none'});
+      $('.card_finalizado').css({display: 'none'});
+    }
+
+  });
 });

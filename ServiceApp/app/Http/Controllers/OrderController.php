@@ -21,12 +21,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('fk_technical','=', Auth::user()->id)->orderBy('id', 'DESC')->paginate(4);
+        $orders = Order::where('fk_technical','=', Auth::user()->id)->orderBy('id', 'DESC')->get();
         return view('users.technical.orders')->with('orders', $orders);
     }
 
     public function ordersCustomer() {
-        $orders = Order::where('fk_user','=',Auth::user()->id)->orderBy('id', 'DESC')->paginate(6);
+        $orders = Order::where('fk_user','=',Auth::user()->id)->orderBy('id', 'DESC')->get();
         return view('users.customer.orders-customer')->with('orders', $orders);
     }
 

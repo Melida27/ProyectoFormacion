@@ -8,7 +8,16 @@
       <div class="area-orders">
         <div class="area-orders2">
 
-          <h1 class="text-center title-orders"><i class="fas fa-list"></i> Lista de Ordenes</h1>
+          <h1 class="title-orders"><i class="fas fa-list"></i> Lista de Ordenes</h1>
+
+          <select class="form-control select-filter" id="select_filter">
+            <option value="todas">Todas</option>
+            <option value="finalizado">Finalizado</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="rechazado">Rechazado</option>
+            <option value="cancelado">Cancelado</option>
+            <option value="proceso">Proceso</option>
+          </select>
 
           @foreach ($orders as $order)
           @if($order->status_order == 'Pendiente')
@@ -23,8 +32,14 @@
             <button type="button" class="btn btn-green btn-more btn-admin-order" data-id="{{$order->id}}" data-toggle="modal" data-target="#modalInfoOrders">Administrar Orden</button>
             <h3 class="date-order">Estado:  {{$order->status_order}}</h3>
           </div>
-          @elseif($order->status_order == 'Rechazado' || $order->status_order == 'Cancelado')
-          <div class="card-order bkg_red">
+          @elseif($order->status_order == 'Rechazado')
+          <div class="card-order bkg_red bkg_rech">
+            <h3 class="date-order">Fecha Creacion:  {{$order->date_order}}</h3>
+            <button type="button" class="btn btn-red btn-more btn-admin-order" data-id="{{$order->id}}" data-toggle="modal" data-target="#modalInfoOrders">Administrar Orden</button>
+            <h3 class="date-order">Estado:  {{$order->status_order}}</h3>
+          </div>
+          @elseif($order->status_order == 'Cancelado')
+          <div class="card-order bkg_red bkg_cancel">
             <h3 class="date-order">Fecha Creacion:  {{$order->date_order}}</h3>
             <button type="button" class="btn btn-red btn-more btn-admin-order" data-id="{{$order->id}}" data-toggle="modal" data-target="#modalInfoOrders">Administrar Orden</button>
             <h3 class="date-order">Estado:  {{$order->status_order}}</h3>
@@ -38,8 +53,7 @@
           </div>
           @endif
           @endforeach
-
-          {{ $orders->links() }}
+          
         </div>
       </div>
     </div>
