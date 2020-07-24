@@ -302,7 +302,7 @@
 <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{asset('js/account.js')}}"></script>
 
-@if(Auth::user()->role == 'Admin')
+@if(Auth::user()->role == 'Admin' || Auth::user()->role == 'Tecnico')
 @include('menu.menu');
 @endif  
 @endsection
