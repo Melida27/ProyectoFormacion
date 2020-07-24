@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Order;
+use App\Service;
+use App\User;
+
 use Auth;
 use DateTime;
 
@@ -18,7 +21,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('fk_technical','=',Auth::user()->id)->orderBy('id', 'DESC')->paginate(4);
+        $orders = Order::where('fk_technical','=', Auth::user()->id)->orderBy('id', 'DESC')->paginate(4);
         return view('users.technical.orders')->with('orders', $orders);
     }
 
@@ -136,6 +139,17 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::find($id);
+        
+        if($order->delete()){
+            return view('orders.index')->with('message', 'Orden eliminada con éxito');
+        }else{
+            return view('orders.index')->with('error', 'La orden no se puede eliminar');
+        }
+    }
+
+    public function orderIndex(){
+        $orders = Order::paginate(20);
+        return view('orders.index')->with('orders', $orders);
     }
 }

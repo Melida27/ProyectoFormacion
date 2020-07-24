@@ -32,6 +32,7 @@ Route::resource('studies', 'StudyController');
 Route::resource('notes', 'NoteController');
 Route::resource('experiences', 'ExperienceController');
 
+Route::get('/order-index', 'OrderController@orderIndex');
 
 Route::put('orders-status/{id}', 'OrderController@updateStatusOrder');
 Route::put('change-status', 'OrderController@updateStatusOrderRedirect');

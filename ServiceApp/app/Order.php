@@ -16,6 +16,7 @@ class Order extends Model
         'fk_technical',
         'fk_service',
         'fk_address',
+        'description',
         'fk_score'
     ];
 
@@ -28,7 +29,7 @@ class Order extends Model
     }
 
     public function address(){
-    	return $this->belongsTo('App\Municipality');
+    	return $this->belongsTo('App\Address');
     }
 
     public function score(){
