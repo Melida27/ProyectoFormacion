@@ -25,9 +25,15 @@
 										{{ $order->date_order }}
 									</td>
 									
+									@if($order->date_service !== null)
 									<td>
 										{{ $order->date_service }}
 									</td>
+									@else
+									<td>
+										N/A
+									</td>
+									@endif
 
 									<td>
 										@if ($order->status_order == "Pendiente")
@@ -48,9 +54,6 @@
 											<i class="fa fa-search"></i>
 										</a>
 
-										<a href="#" class="btn btn-sm btn-custom">
-											<i class="fa fa-pen"></i>
-										</a>
 									</td>
 								</tr>
 							@endforeach

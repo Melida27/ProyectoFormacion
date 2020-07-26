@@ -385,3 +385,7 @@ svg rect{
 	color: #fff;
 	cursor: pointer;
 }
+
+.form_change_status {
+	display: none;
+}

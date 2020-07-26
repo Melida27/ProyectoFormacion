@@ -26,13 +26,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role == 'Admin'){
+        if(Auth::user()->status == 0){
+            Auth::logout();
+            return redirect('user-block');
+        }else {
+            if (Auth::user()->role == 'Admin'){
             return view('dashboard-admin');
         } else if (Auth::user()->role == 'Cliente'){
             return view('dashboard-customer');
         } else if (Auth::user()->role == 'Tecnico'){
             return view('dashboard-technical');
         }
+        }
+        
     }
 
     public function allCategories()

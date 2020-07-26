@@ -67,6 +67,10 @@ Route::get('/technicalsbyservice/{id}', 'ServiceUserController@technicalsbyservi
 
 Route::get('/allservices', 'ServiceUserController@allservices');
 
+Route::get('/user-block', function(){
+     return view('errors.user-block');
+});
+
 
 Auth::routes();
 
