@@ -33,6 +33,7 @@ Route::resource('notes', 'NoteController');
 Route::resource('experiences', 'ExperienceController');
 
 Route::get('/order-index', 'OrderController@orderIndex');
+Route::get('/order-show/{id}', 'OrderController@showOrder');
 
 Route::put('orders-status/{id}', 'OrderController@updateStatusOrder');
 Route::put('change-status', 'OrderController@updateStatusOrderRedirect');

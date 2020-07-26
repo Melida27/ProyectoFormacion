@@ -15,8 +15,16 @@
                         <a href="{{url('users')}}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-users"></i>  Módulo Usuarios</a>
                         <a href="{{url('categories')}}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-columns"></i>  Módulo Categorias</a>
                         <a href="{{url('services')}}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-list"></i>  Módulo Servicios</a>
-                        <a href="#" class="nav-item nav-link item-color-text item-left"><i class="fa fa-business-time"></i>  Módulo Pedidos</a>
-                        <a href="{{ route('logout') }}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-sign-out-alt"></i>  Cerrar Sesion</a>
+                        <a href="{{ url('/order-index') }}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-business-time"></i>  Módulo Pedidos</a>
+                        <a class="nav-item nav-link item-color-text item-left" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                            <i class="fa fa-sign-out-alt"></i>
+                            {{ __('custom.logout') }}
+                        </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
                 @elseif(Auth::user()->role == 'Tecnico')
                 <div class="nav flex-sm-column flex-row">
@@ -29,7 +37,18 @@
                         <a href="{{ url('experiences') }}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-folder"></i>  Mis Experiencias</a>
                         <a href="{{url('orders')}}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-table"></i>  Mis Ordenes</a>
                         <a href="{{url('account')}}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-user"></i>  Mi Perfil</a>
-                        <a href="{{ route('logout') }}" class="nav-item nav-link item-color-text item-left"><i class="fa fa-sign-out-alt"></i>  Cerrar Sesion</a>
+                        
+
+
+                        <a class="nav-item nav-link item-color-text item-left" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                            <i class="fa fa-sign-out-alt"></i>
+                            {{ __('custom.logout') }}
+                        </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>        
                 @endif
             </div>

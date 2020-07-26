@@ -87,7 +87,7 @@
                                             <i class="fa fa-list"></i> 
                                             Módulo Servicios
                                         </a>
-                                        <a class="dropdown-item" href="{{ url('orders') }}">
+                                        <a class="dropdown-item" href="{{ url('/order-index') }}">
                                             <i class="fa fa-business-time"></i> 
                                             Módulo Pedidos
                                         </a>

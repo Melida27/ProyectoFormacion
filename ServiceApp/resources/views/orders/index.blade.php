@@ -7,13 +7,7 @@
 			<div class="col-md-10 offset-md-1">
 				<h1 class="mt-2"><i class="fa fa-list"></i> Lista de Ordenes</h1>
 				<hr>
-				<a href="#" class="btn btn-custom">
-					<i class="fa fa-plus"></i> 
-					Adicionar Orden
-				</a>
-				
-				<br>
-				<hr>
+
                 @if(count($orders) > 0)
 					<table class="table table-striped table-hover ">
 						<thead>
@@ -36,25 +30,27 @@
 									</td>
 
 									<td>
-										{{ $order->status_order }}
+										@if ($order->status_order == "Pendiente")
+											<span class="badge badge-warning">{{ $order->status_order }}</span>
+										@elseif($order->status_order == "Proceso")
+											<span class="badge badge-info">{{ $order->status_order }}</span>
+										@elseif($order->status_order == "Finalizado")
+											<span class="badge badge-success">{{ $order->status_order }}</span>
+										@elseif($order->status_order == "Rechazado" || $order->status_order == "Cancelado" )
+											<span class="badge badge-danger">{{ $order->status_order }}</span>
+										@else
+											{{ $order->status_order }}
+										@endif
 									</td>
 
 									<td>
-										<a href="#" class="btn btn-sm btn-custom">
+										<a href="{{ url('/order-show/'.$order->id) }}" class="btn btn-sm btn-custom">
 											<i class="fa fa-search"></i>
 										</a>
 
 										<a href="#" class="btn btn-sm btn-custom">
 											<i class="fa fa-pen"></i>
 										</a>
-
-										<form action="{{ url('orders/'.$order->id) }}" method="post" style="display: inline-block;">
-											@csrf
-											@method('delete')
-											<button type="button" class="btn btn-sm btn-custom-danger btn-delete">
-												<i class="fa fa-trash"></i>
-											</button>
-										</form>
 									</td>
 								</tr>
 							@endforeach
