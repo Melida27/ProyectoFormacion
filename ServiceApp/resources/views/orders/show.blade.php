@@ -149,6 +149,7 @@
 
 
 </div>
+@include('menu.menu');
 
 <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('js/sweetalert2@9.js') }}"></script>

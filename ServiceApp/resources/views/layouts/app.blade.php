@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        @if(Auth::user()->role !== 'Tecnico')
+        @if(!isset(Auth::user()->role) || Auth::user()->role !== 'Tecnico')
         <nav class="navbar navbar-expand-md navbar-dark bg-custom shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
