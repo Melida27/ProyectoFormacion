@@ -68,4 +68,4 @@
 		</div>
 	</div>
 @endsection
-@include('menu.menu');
+@include('menu.menu')
